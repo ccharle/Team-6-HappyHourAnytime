@@ -9,9 +9,7 @@ import retrofit2.http.Query;
 public interface BartenderService {
 
     @GET("/api/json/v1/1/filter.php?c=Ordinary_Drink")
-    Call<DrinksResponse> getDrinks(
-            @Query("s") String drinkName
-    );
+    Call<DrinksResponse> getDrinks();
 
     @GET("/api/json/v1/1/random.php")
     Call<DrinksResponse> getRandomDrinks();

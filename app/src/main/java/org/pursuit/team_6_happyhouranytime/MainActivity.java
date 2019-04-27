@@ -27,15 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      findViews();
-      
+
         testCallButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Drinks = drinksText.getText().toString().toLowerCase();
 
                 RetrofitSingleton.getInstance()
-                       // .getBartenderService().getDrinks(Drinks)
+                        .getBartenderService().getDrinks(Drinks)
                         .enqueue(new Callback<DrinksResponse>() {
                             @Override
                             public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
@@ -47,11 +46,12 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d(TAG, t.getMessage());
                             }
                         });
+            }
+        });
+    }
 
-private void findViews(){
-    testCallButton = findViewById(R.id.test_call_button);
-        drinksText = findViewById(R.id.enter_drinks);
 
+    private void findViews() {
         seachByNameButton = findViewById(R.id.search_by_name_button);
         seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
         pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
@@ -70,23 +70,8 @@ private void findViews(){
             public void onClick(View v) {
 
 
-
-            }
-        });
-}
-  
-
-    }
-
-
-
-        pickADrinkAtRandomButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
             }
         });
     }
-
 }
+

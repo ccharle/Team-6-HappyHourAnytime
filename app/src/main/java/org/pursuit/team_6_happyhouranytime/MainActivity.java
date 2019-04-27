@@ -33,19 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String Drinks = drinksText.getText().toString().toLowerCase();
 
-                RetrofitSingleton.getInstance()
-                        .getBartenderService().getDrinks(Drinks)
-                        .enqueue(new Callback<DrinksResponse>() {
-                            @Override
-                            public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
-                                Log.d(TAG, "OnResponse" + response.body());
-                            }
 
-                            @Override
-                            public void onFailure(Call<DrinksResponse> call, Throwable t) {
-                                Log.d(TAG, t.getMessage());
-                            }
-                        });
             }
         });
     }

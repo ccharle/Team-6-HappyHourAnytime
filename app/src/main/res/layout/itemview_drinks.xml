@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/layout_margin_8"
+    android:layout_margin="@dimen/layout_margin_8">
+
+    <TextView
+        android:id="@+id/drink_name_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/drink_name_text_size"
+        android:textAlignment="center"/>
+
+</android.support.v7.widget.CardView>

@@ -28,22 +28,10 @@ public class  MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        testCallButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Drinks = drinksText.getText().toString().toLowerCase();
-
-
-            }
-        });
     }
 
 
     private void findViews() {
-//        seachByNameButton = findViewById(R.id.search_by_name_button);
-//        seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
-//        pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
-
 
         seachByNameButton.setOnClickListener(new View.OnClickListener() {
             @Override

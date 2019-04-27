@@ -3,6 +3,7 @@
     package="org.pursuit.team_6_happyhouranytime">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
 
         android:allowBackup="true"
@@ -11,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SearchViewActivity"></activity>
         <activity android:name=".RandomDrinkSelected"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -2,12 +2,14 @@ package org.pursuit.team_6_happyhouranytime;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RandomDrinkSelected extends AppCompatActivity {
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
+    private ImageView randomDrinkSelectedImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

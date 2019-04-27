@@ -14,15 +14,24 @@
         android:textSize="32sp"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/random_drink_imageview"/>
+
+    <ImageView
+        android:id="@+id/random_drink_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@id/random_drink_ingredients_textview"
+        app:layout_constraintTop_toBottomOf="@id/name_of_random_drink_textview"/>
 
     <TextView
         android:id="@+id/random_drink_ingredients_textview"
         android:layout_width="match_parent"
-        android:layout_height="565dp"
+        android:layout_height="465dp"
         android:text="all the ingredients, bruh"
         android:gravity="center"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@id/name_of_random_drink_textview" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/random_drink_imageview" />
 
 </android.support.constraint.ConstraintLayout>

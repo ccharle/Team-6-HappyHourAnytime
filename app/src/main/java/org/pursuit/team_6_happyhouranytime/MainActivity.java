@@ -1,6 +1,7 @@
 package org.pursuit.team_6_happyhouranytime;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent toSearchIntent = new Intent(MainActivity.this, SearchViewActivity.class);
+                startActivity(toSearchIntent);
 
             }
         });

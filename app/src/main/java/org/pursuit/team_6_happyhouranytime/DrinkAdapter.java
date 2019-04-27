@@ -28,7 +28,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull DrinkViewHolder drinkViewHolder, int i) {
-
+      drinkViewHolder.onBind(drinksList.get(i));
     }
 
     @Override

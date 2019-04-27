@@ -1,5 +1,7 @@
 package org.pursuit.team_6_happyhouranytime;
 
+
+import android.content.Intent;
 import android.content.DialogInterface;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViews();
+        Intent intent = new Intent(this, SearchViewActivity.class);
+        startActivity(intent);
 
         dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setCancelable(false);

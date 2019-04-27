@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".IngredientActivityDisplay"></activity>
-        <activity android:name=".NameActivityDisplay" />
+        <activity android:name=".NameOrIngredientActivityDisplay" />
         <activity android:name=".SearchViewActivity"></activity>
         <activity android:name=".RandomDrinkSelected"></activity>
         <activity android:name=".MainActivity">

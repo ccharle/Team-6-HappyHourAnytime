@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Team-6-HappyHourAnytime</string>
+    <string name="title_activity_name_result">NameResultActivity</string>
+    <string name="title_activity_ingredient_result">IngredientActivityResult</string>
+    <string name="title_activity_name_display">NameActivityDisplay</string>
+    <string name="title_activity_ingrdient_display">IngrdientActivityDisplay</string>
 </resources>

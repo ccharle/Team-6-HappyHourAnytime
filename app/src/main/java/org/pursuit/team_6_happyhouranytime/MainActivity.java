@@ -52,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void findViews() {
-        seachByNameButton = findViewById(R.id.search_by_name_button);
-        seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
-        pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
+//        seachByNameButton = findViewById(R.id.search_by_name_button);
+//        seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
+//        pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
 
 
         seachByNameButton.setOnClickListener(new View.OnClickListener() {

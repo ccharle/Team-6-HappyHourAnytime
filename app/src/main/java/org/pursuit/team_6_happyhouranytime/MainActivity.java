@@ -34,44 +34,42 @@ public class MainActivity extends AppCompatActivity {
                 String Drinks = drinksText.getText().toString().toLowerCase();
 
                 RetrofitSingleton.getInstance()
-                        .getBartenderService().getDrinks(Drinks)
+                        .getBartenderService().getDrinks(Drinks, )
                         .enqueue(new Callback<DrinksResponse>() {
                             @Override
                             public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
                                 Log.d(TAG, "OnResponse" + response.body());
-                            }
-
-                            @Override
-                            public void onFailure(Call<DrinksResponse> call, Throwable t) {
-                                Log.d(TAG, t.getMessage());
-                            }
-                        });
-            }
-        });
-    }
+                                @Override
+                                public void onFailure (Call < DrinksResponse > call, Throwable t){
+                                    Log.d(TAG, t.getMessage());
+                                }
+                            });
+                        }
+            });
+        }
 
 
-    private void findViews() {
+        private void findViews () {
 //        seachByNameButton = findViewById(R.id.search_by_name_button);
 //        seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
 //        pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
 
 
-        seachByNameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            seachByNameButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
 
-            }
-        });
+                }
+            });
 
-        seachByIngredientsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            seachByIngredientsButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
 
-            }
-        });
+                }
+            });
+        }
     }
-}
 

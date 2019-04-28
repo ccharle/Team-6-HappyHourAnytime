@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findViews();
-
         dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setCancelable(false);
         dialog.setTitle("WARNING!!!");
@@ -40,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.setPositiveButton("Acknowledge", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog1, int id) {
-
-
                 Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Happy Drinking!!!", Snackbar.LENGTH_LONG);
                 View view = snackbar.getView();
                 TextView tv = view.findViewById(android.support.design.R.id.snackbar_text);
@@ -59,17 +55,14 @@ public class MainActivity extends AppCompatActivity {
                         System.exit(0);
                     }
                 })
-
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
-
     }
 
     private void findViews() {
         seachByNameButton = findViewById(R.id.search_by_name_button);
         seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
         pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
-
         seachByNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

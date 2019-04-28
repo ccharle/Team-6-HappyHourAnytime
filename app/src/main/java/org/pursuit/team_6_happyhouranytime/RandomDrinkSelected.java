@@ -63,9 +63,13 @@ public class RandomDrinkSelected extends AppCompatActivity {
                         }
                         randomDrinkSelectedTextview.setText(drinkList.get(0).getStrDrink());
 
-                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient1());
-                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient2());
-                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient3());
+                        String firstIngredient = drinkList.get(0).getStrIngredient1();
+                        String secondIngredient = drinkList.get(0).getStrIngredient2();
+                        String thirdIngredient = drinkList.get(0).getStrIngredient3();
+
+                        String drinkInstruction = drinkList.get(0).getStrInstructions();
+
+                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n "+ secondIngredient + "\n" +thirdIngredient + "\n" + drinkInstruction);
 
                         String drinkImage = drinkList.get(0).getStrDrinkThumb();
                         Picasso.get()

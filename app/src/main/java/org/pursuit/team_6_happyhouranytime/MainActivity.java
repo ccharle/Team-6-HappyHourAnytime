@@ -54,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         })
-                .setNegativeButton("Don't Acknowledge", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        finish();
-                        System.exit(0);
-                    }
-                })
 
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();

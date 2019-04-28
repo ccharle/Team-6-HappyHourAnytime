@@ -1,4 +1,4 @@
-package org.pursuit.team_6_happyhouranytime;
+package org.pursuit.team_6_happyhouranytime.recyclerview;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull DrinkViewHolder drinkViewHolder, int i) {
-
+      drinkViewHolder.onBind(drinksList.get(i));
     }
 
     @Override

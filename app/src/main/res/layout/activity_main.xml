@@ -12,7 +12,7 @@
         android:layout_height="200dp"
         android:text="Know The Name Of The Drink?"
         android:textSize="32sp"
-        android:background="@color/colorPrimary"
+        android:background="#F7676D"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/search_by_ingredients_button"/>
@@ -23,7 +23,7 @@
         android:layout_height="200dp"
         android:text="Know The Drink Ingredient?"
         android:textSize="32sp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#F5907C"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_by_name_button"
         app:layout_constraintBottom_toTopOf="@id/pick_random_drink_button"/>
@@ -34,7 +34,7 @@
         android:layout_height="204dp"
         android:text="I Can't Decide. Pick For Me"
         android:textSize="32sp"
-        android:background="@color/colorAccent"
+        android:background="@color/backgroundColor"
         app:layout_constraintTop_toBottomOf="@id/search_by_ingredients_button"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

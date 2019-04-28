@@ -2,12 +2,15 @@ package org.pursuit.team_6_happyhouranytime;
 
 
 import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -50,14 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         })
-                .setNegativeButton("Don't Acknowledge", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                        finish();
-                        System.exit(0);
-                    }
-                })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
@@ -69,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
         seachByNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SearchViewActivity.class);
-                startActivity(intent);
+
+
+                Intent toSearchIntent = new Intent(MainActivity.this, SearchViewActivity.class);
+                startActivity(toSearchIntent);
 
             }
         });
@@ -86,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
         pickADrinkAtRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(
-                        MainActivity.this, RandomDrinkSelected.class);
+                Intent intent = new Intent(MainActivity.this, RandomDrinkSelected.class);
+
                 startActivity(intent);
             }
         });

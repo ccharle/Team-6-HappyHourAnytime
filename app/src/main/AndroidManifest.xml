@@ -15,7 +15,8 @@
         <activity android:name=".NameOrIngredientActivityDisplay" />
         <activity android:name=".SearchViewActivity"></activity>
         <activity android:name=".RandomDrinkSelected"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

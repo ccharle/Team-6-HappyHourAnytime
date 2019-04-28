@@ -18,7 +18,4 @@ public interface BartenderService {
     Call<DrinksResponse> getDrinkType(
             @Query("a") String drinkType
     );
-
-
-    //https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
 }

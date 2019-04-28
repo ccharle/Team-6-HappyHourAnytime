@@ -15,7 +15,6 @@ class DrinkViewHolder extends RecyclerView.ViewHolder {
 
     private TextView drinkNameView;
 
-
     public DrinkViewHolder(@NonNull View itemView) {
         super(itemView);
         drinkNameView = itemView.findViewById(R.id.drink_name_view);

@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 

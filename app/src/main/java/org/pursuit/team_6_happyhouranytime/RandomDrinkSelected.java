@@ -29,7 +29,6 @@ public class RandomDrinkSelected extends AppCompatActivity {
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
     private List <Drinks> drinkList;
-    private Drinks drinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,6 @@ public class RandomDrinkSelected extends AppCompatActivity {
                 .getBartenderService()
                 .getRandomDrinks()
                 .enqueue(new Callback<DrinksResponse>() {
-
-
-
                     @Override
                     public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
                         Log.d(TAG, "OnResponse" + response.body());

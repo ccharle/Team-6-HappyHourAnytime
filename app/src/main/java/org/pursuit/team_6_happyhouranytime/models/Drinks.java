@@ -1,11 +1,11 @@
 package org.pursuit.team_6_happyhouranytime.models;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 import java.io.Serializable;
 
 public class Drinks implements Serializable {
+    private String idDrink;
     private String strDrink;
     private String strInstructions;
     private String strIngredient1;
@@ -42,7 +42,8 @@ public class Drinks implements Serializable {
 
     private String strDrinkThumb;
 
-    public Drinks(String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+    public Drinks(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+        this.idDrink = idDrink;
         this.strDrink = strDrink;
         this.strInstructions = strInstructions;
         this.strIngredient1 = strIngredient1;
@@ -55,6 +56,7 @@ public class Drinks implements Serializable {
     }
 
     protected Drinks(Parcel in) {
+        idDrink = in.readString();
         strDrink = in.readString();
         strInstructions = in.readString();
         strIngredient1 = in.readString();
@@ -93,6 +95,8 @@ public class Drinks implements Serializable {
     public String getStrDrink() {
         return strDrink;
     }
+
+
 
     public String getStrInstructions() {
         return strInstructions;

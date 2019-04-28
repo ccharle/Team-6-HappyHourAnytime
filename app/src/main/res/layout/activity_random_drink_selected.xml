@@ -6,18 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5907C"
     tools:context=".RandomDrinkSelected">
 
     <TextView
         android:id="@+id/name_of_random_drink_textview"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#F5907C"
         android:gravity="center"
         android:text="Drink Name"
         android:textSize="40sp"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,10 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
                 <ImageView
@@ -57,29 +55,39 @@
                     android:textColor="#0000"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/ingredient_info_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:hint="Light rum"
-                    android:textSize="24sp" />
+            <TextView
+                android:id="@+id/ingredient_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ingredients:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/instruction_header_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Instructions:"
-                    android:textColor="#0000"                    android:textSize="24sp" />
+            <TextView
+                android:id="@+id/random_drink_ingredients_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="all the ingredients, bruh"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/instruction_info_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:hint="Pour rum"
-                    android:textSize="24sp" />
+            <TextView
+                android:id="@+id/instruction_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Instructions:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/instructions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="all the ingredients, bruh"
+                android:textSize="24sp" />
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

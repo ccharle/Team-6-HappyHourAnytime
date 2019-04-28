@@ -2,9 +2,8 @@ package org.pursuit.team_6_happyhouranytime;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.DimenRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,7 +30,6 @@ public class NameOrIngredientActivityDisplay extends AppCompatActivity {
     private final String TAG = "IDsearch";
     private final String ID_KEY = "identification";
     private final String TOAST_ERROR = "Check Connection";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,3 +86,4 @@ public class NameOrIngredientActivityDisplay extends AppCompatActivity {
         displayDrink = findViewById(R.id.selected_drink_imageView);
     }
 }
+

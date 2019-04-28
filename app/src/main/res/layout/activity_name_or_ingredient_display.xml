@@ -41,20 +41,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/name_drink_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:hint="Coffee-Vodka"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/selected_drink_imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+        <ImageView
+            android:id="@+id/selected_drink_imageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
 
-                <TextView
-                    android:id="@+id/header_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Ingredients:"
-                    android:textColor="#FFFF"
-                    android:textSize="24sp" />
+        <TextView
+            android:id="@+id/inst_info_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Ingredients:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/info_textView"
@@ -73,13 +83,13 @@
                     android:textColor="#FFFF"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/inst_info_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:hint="Pour rum"
-                    android:textSize="24sp" />
+        <TextView
+            android:id="@+id/inst_header_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Pour rum"
+            android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/glass_textView"

@@ -30,9 +30,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
-    private TextView randomDrinkInstructions;
-    private TextView instructionHeader;
-    private TextView ingredientHeader;
+    private TextView randomInstuctions;
     private ImageView randomDrinkSelectedImageView;
 
     private List<Drinks> drinkList;
@@ -43,18 +41,9 @@ public class RandomDrinkSelected extends AppCompatActivity {
         setContentView(R.layout.activity_random_drink_selected);
 
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
-        randomDrinkSelectedIngredientsTextView = findViewById(R.id.ingredient_info_textView);
+        randomDrinkSelectedIngredientsTextView = findViewById(R.id.random_drink_ingredients_textview);
         randomDrinkSelectedImageView = findViewById(R.id.random_selected_drink_imageView);
-        randomDrinkInstructions = findViewById(R.id.instruction_info_textView);
-        ingredientHeader = findViewById(R.id.ingredient_header_textView);
-        instructionHeader = findViewById(R.id.instruction_header_textView);
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
+        randomInstuctions = findViewById(R.id.instructions);
         getRetrofitCall();
     }
 
@@ -77,12 +66,8 @@ public class RandomDrinkSelected extends AppCompatActivity {
                         String thirdIngredient = drinkList.get(0).getStrIngredient3();
                         String drinkInstruction = drinkList.get(0).getStrInstructions();
 
-                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n " + secondIngredient + "\n" + thirdIngredient + "\n");
-
-                        Log.e("THIS", firstIngredient);
-
-
-                        randomDrinkInstructions.setText(drinkInstruction);
+                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n " + secondIngredient + "\n" + thirdIngredient);
+                        randomInstuctions.setText(drinkInstruction);
 
                         String drinkImage = drinkList.get(0).getStrDrinkThumb();
                         Picasso.get()

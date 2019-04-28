@@ -3,29 +3,52 @@ package org.pursuit.team_6_happyhouranytime;
 
 import android.content.Intent;
 import android.content.DialogInterface;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
+
+import org.pursuit.team_6_happyhouranytime.models.Drinks;
+import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
+import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
+import org.pursuit.team_6_happyhouranytime.recyclerview.DrinkAdapter;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "main";
+    public static final String DRINK_KEY = "drinks";
+
     private Button seachByNameButton;
     private Button seachByIngredientsButton;
     private Button pickADrinkAtRandomButton;
     private AlertDialog.Builder dialog;
+    private List<Drinks> drinkList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, SearchViewActivity.class);
-        startActivity(intent);
+        findViews();
 
         dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setCancelable(false);
@@ -60,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-
         seachByNameButton = findViewById(R.id.search_by_name_button);
         seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
         pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
@@ -68,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         seachByNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Intent intent = new Intent(MainActivity.this, SearchViewActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -84,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
         pickADrinkAtRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(
+                        MainActivity.this, RandomDrinkSelected.class);
+                startActivity(intent);
             }
         });
     }
 }
-
-

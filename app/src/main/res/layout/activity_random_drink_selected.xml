@@ -43,9 +43,6 @@
                 android:orientation="vertical">
 
 
-<<<<<<< HEAD
-
-=======
                 <ImageView
                     android:id="@+id/random_selected_drink_imageView"
                     android:layout_width="match_parent"
@@ -57,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Ingredients:"
-                    android:textColor="#FFFF"
+                    android:textColor="#0000"
                     android:textSize="24sp" />
 
                 <TextView
@@ -74,8 +71,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Instructions:"
-                    android:textColor="#FFFF"
-                    android:textSize="24sp" />
+                    android:textColor="#0000"                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/instruction_info_textView"
@@ -83,16 +79,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:hint="Pour rum"
-                    android:textSize="24sp" />
->>>>>>> master
-
-                <TextView
-                    android:id="@+id/glass_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Glass"
-                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp" />
 
             </LinearLayout>

@@ -1,15 +1,39 @@
 package org.pursuit.team_6_happyhouranytime;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.widget.ImageView;
+
+import android.util.Log;
+
 import android.widget.TextView;
 
+
+import com.squareup.picasso.Picasso;
+
+import org.pursuit.team_6_happyhouranytime.models.Drinks;
+import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
+import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RandomDrinkSelected extends AppCompatActivity {
+
+    private static final String TAG = "random";
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
     private ImageView randomDrinkSelectedImageView;
+
+    private List <Drinks> drinkList;
+    private Drinks drinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +42,42 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);
+        randomDrinkSelectedImageView = findViewById(R.id.random_drink_imageview);
+        getRetrofitCall();
+    }
+
+    public void getRetrofitCall() {
+        RetrofitSingleton.getInstance()
+                .getBartenderService()
+                .getRandomDrinks()
+                .enqueue(new Callback<DrinksResponse>() {
+
+
+
+                    @Override
+                    public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
+                        Log.d(TAG, "OnResponse" + response.body());
+                        drinkList = new ArrayList<>();
+                        if (response.body() != null) {
+                            drinkList.addAll(response.body().getDrinks());
+                        }
+                        randomDrinkSelectedTextview.setText(drinkList.get(0).getStrDrink());
+
+                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient1());
+                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient2());
+                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrIngredient3());
+
+                        String drinkImage = drinkList.get(0).getStrDrinkThumb();
+                        Picasso.get()
+                                .load(drinkImage)
+                                .into(randomDrinkSelectedImageView);
+                    }
+
+                    @Override
+                    public void onFailure(Call<DrinksResponse> call, Throwable t) {
+                        Log.d(TAG, t.getMessage());
+                    }
+                });
     }
 
 }

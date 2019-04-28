@@ -1,6 +1,11 @@
 package org.pursuit.team_6_happyhouranytime.models;
 
-public class Drinks {
+import android.os.Parcel;
+
+import java.io.Serializable;
+
+public class Drinks implements Serializable {
+    private String idDrink;
     private String strDrink;
     private String strInstructions;
     private String strIngredient1;
@@ -37,7 +42,8 @@ public class Drinks {
 
     private String strDrinkThumb;
 
-    public Drinks(String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+    public Drinks(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+        this.idDrink = idDrink;
         this.strDrink = strDrink;
         this.strInstructions = strInstructions;
         this.strIngredient1 = strIngredient1;
@@ -47,6 +53,43 @@ public class Drinks {
         this.strMeasure2 = strMeasure2;
         this.strMeasure3 = strMeasure3;
         this.strDrinkThumb = strDrinkThumb;
+    }
+
+    protected Drinks(Parcel in) {
+        idDrink = in.readString();
+        strDrink = in.readString();
+        strInstructions = in.readString();
+        strIngredient1 = in.readString();
+        strIngredient2 = in.readString();
+        strIngredient3 = in.readString();
+        strIngredient4 = in.readString();
+        strIngredient5 = in.readString();
+        strIngredient6 = in.readString();
+        strIngredient7 = in.readString();
+        strIngredient8 = in.readString();
+        strIngredient9 = in.readString();
+        strIngredient10 = in.readString();
+        strIngredient11 = in.readString();
+        strIngredient12 = in.readString();
+        strIngredient13 = in.readString();
+        strIngredient14 = in.readString();
+        strIngredient15 = in.readString();
+        strMeasure1 = in.readString();
+        strMeasure2 = in.readString();
+        strMeasure3 = in.readString();
+        strMeasure4 = in.readString();
+        strMeasure5 = in.readString();
+        strMeasure6 = in.readString();
+        strMeasure7 = in.readString();
+        strMeasure8 = in.readString();
+        strMeasure9 = in.readString();
+        strMeasure10 = in.readString();
+        strMeasure11 = in.readString();
+        strMeasure12 = in.readString();
+        strMeasure13 = in.readString();
+        strMeasure14 = in.readString();
+        strMeasure15 = in.readString();
+        strDrinkThumb = in.readString();
     }
 
     public String getStrDrink() {

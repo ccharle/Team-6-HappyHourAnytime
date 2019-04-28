@@ -1,7 +1,9 @@
 package org.pursuit.team_6_happyhouranytime;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
+import android.content.DialogInterface;
+
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -11,12 +13,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.pursuit.team_6_happyhouranytime.models.Drinks;
+
+import java.util.List;
+
+
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "main";
+    public static final String DRINK_KEY = "drinks";
+
     private Button seachByNameButton;
     private Button seachByIngredientsButton;
     private Button pickADrinkAtRandomButton;
     private AlertDialog.Builder dialog;
+    private List<Drinks> drinkList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-
         seachByNameButton = findViewById(R.id.search_by_name_button);
         seachByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
         pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
@@ -66,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         seachByNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 Intent toSearchIntent = new Intent(MainActivity.this, SearchViewActivity.class);
                 startActivity(toSearchIntent);
@@ -84,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         pickADrinkAtRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RandomDrinkSelected.class);
 
+                startActivity(intent);
             }
         });
     }
 }
-
-

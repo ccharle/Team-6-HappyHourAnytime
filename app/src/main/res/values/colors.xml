@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F7676D</color>
-    <color name="colorPrimaryDark">#F5907C</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#65F36B</color>
     <color name="colorForText">#022648</color>
     <color name="backgroundColor">#D81B60</color>
     <color name="colorAccent">#5EC0AE</color>
     <color name="snackColor">#FFF</color>
     <color name = "splashBackground">#E75FAA</color>
+    <color name="text_color_black">#000</color>
 </resources>

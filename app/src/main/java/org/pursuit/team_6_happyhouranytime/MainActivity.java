@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
-import org.pursuit.team_6_happyhouranytime.recyclerview.IngredientSearchViewActivity;
+import org.pursuit.team_6_happyhouranytime.recyclerview.IngredientSearchView;
 
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViews();
         dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setCancelable(false);
         dialog.setTitle("WARNING!!!");
@@ -53,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
-
-        findViews();
     }
 
     private void findViews() {
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, IngredientSearchView.class);
-
                 startActivity(intent);
 
 

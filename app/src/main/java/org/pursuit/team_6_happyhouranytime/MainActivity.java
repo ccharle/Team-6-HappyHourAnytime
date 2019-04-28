@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
+import org.pursuit.team_6_happyhouranytime.recyclerview.IngredientSearchViewActivity;
 
 import java.util.List;
 
@@ -74,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         seachByIngredientsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IngredientSearchView.class);
+
+                startActivity(intent);
 
 
             }

@@ -11,6 +11,7 @@ import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 
 class DrinkViewHolder extends RecyclerView.ViewHolder {
+    private final String ID_KEY = "identification";
 
     private TextView drinkNameView;
 
@@ -19,12 +20,14 @@ class DrinkViewHolder extends RecyclerView.ViewHolder {
         drinkNameView = itemView.findViewById(R.id.drink_name_view);
     }
 
-    public void onBind(Drinks drink) {
+    public void onBind(final Drinks drink) {
         drinkNameView.setText(drink.getStrDrink());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id = drink.getIdDrink();
                 Intent intent = new Intent(v.getContext(), NameOrIngredientActivityDisplay.class);
+                intent.putExtra(ID_KEY, id);
                 v.getContext().startActivity(intent);
             }
         });

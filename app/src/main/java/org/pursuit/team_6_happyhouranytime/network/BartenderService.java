@@ -18,4 +18,14 @@ public interface BartenderService {
     Call<DrinksResponse> getDrinkType(
             @Query("a") String drinkType
     );
+    @GET("/api/json/v1/1/filter.php")
+    Call<DrinksResponse>getIngredient(
+            @Query("i") String drinkIngredient);
+
+    @GET("/api/json/v1/1/lookup.php")
+    Call<DrinksResponse> getById(@Query("i") String drinkID);
+
+
+
+    //https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
 }

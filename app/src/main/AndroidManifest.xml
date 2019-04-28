@@ -11,18 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".IngredientSearchView"></activity>
         <activity android:name=".SplashPage">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-       </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".IngredientActivityDisplay" />
         <activity android:name=".NameOrIngredientActivityDisplay" />
-        <activity android:name=".SearchViewActivity"></activity>
-        <activity android:name=".RandomDrinkSelected"></activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".SearchViewActivity" />
+        <activity android:name=".RandomDrinkSelected" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

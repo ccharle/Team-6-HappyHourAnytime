@@ -1,11 +1,15 @@
 package org.pursuit.team_6_happyhouranytime;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
@@ -19,28 +23,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class IngredientActivityDisplay extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class IngredientSearchView extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    private static final String TAG = "search";
+    private static final String TAG = "ingredient";
+
     private RecyclerView recyclerView;
     private SearchView searchView;
     private List<Drinks> drinkList;
     private DrinkAdapter adapter;
-    private String getQuery;
+    private String input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_view);
+
         recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
 
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(this);
     }
 
     public void getRetrofitCall() {
         RetrofitSingleton.getInstance()
                 .getBartenderService()
-                .getIngredient(getQuery)
+                .getIngredient(input)
                 .enqueue(new Callback<DrinksResponse>() {
 
                     @Override
@@ -60,26 +68,25 @@ public class IngredientActivityDisplay extends AppCompatActivity implements Sear
                         Log.d(TAG, t.getMessage());
                     }
                 });
-        searchView = findViewById(R.id.searchView);
-        searchView.setOnQueryTextListener(this);
     }
 
     @Override
     public boolean onQueryTextSubmit(String s) {
+
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String s) {
-        getQuery = s;
+        input = s.toLowerCase();
         getRetrofitCall();
-
-        List<Drinks> newDrinkList = new ArrayList<>();
-        for (Drinks d : drinkList) {
-            if (d.getStrDrink().toLowerCase().startsWith(s.toLowerCase()))
-                newDrinkList.add(d);
-        }
-        adapter.setData(newDrinkList);
+//        List<Drinks> newDrinkList = new ArrayList<>();
+//        for (Drinks d : drinkList) {
+//            if (d.getStrDrink().toLowerCase().startsWith(s.toLowerCase()))
+//                newDrinkList.add(d);
+//        }
+//        adapter.setData(newDrinkList);
         return false;
     }
+
 }

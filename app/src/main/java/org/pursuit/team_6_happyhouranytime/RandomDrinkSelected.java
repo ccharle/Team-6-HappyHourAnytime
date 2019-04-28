@@ -1,19 +1,21 @@
 package org.pursuit.team_6_happyhouranytime;
 
-import android.content.Intent;
-import android.os.Parcelable;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+
+import android.widget.ImageView;
+
 import android.util.Log;
+
 import android.widget.TextView;
 
-import com.google.gson.Gson;
+
+import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
 import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
-import org.pursuit.team_6_happyhouranytime.recyclerview.DrinkAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,8 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
+    private ImageView randomDrinkSelectedImageView;
+
     private List <Drinks> drinkList;
 
     @Override
@@ -37,6 +41,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);
+        randomDrinkSelectedImageView = findViewById(R.id.random_drink_imageview);
         getRetrofitCall();
     }
 
@@ -52,8 +57,20 @@ public class RandomDrinkSelected extends AppCompatActivity {
                         if (response.body() != null) {
                             drinkList.addAll(response.body().getDrinks());
                         }
-                        randomDrinkSelectedTextview.setText(drinkList.get(0).getStrIngredient1());
-                        randomDrinkSelectedIngredientsTextView.setText(drinkList.get(0).getStrDrink());
+                        randomDrinkSelectedTextview.setText(drinkList.get(0).getStrDrink());
+
+                        String firstIngredient = drinkList.get(0).getStrIngredient1();
+                        String secondIngredient = drinkList.get(0).getStrIngredient2();
+                        String thirdIngredient = drinkList.get(0).getStrIngredient3();
+
+                        String drinkInstruction = drinkList.get(0).getStrInstructions();
+
+                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n "+ secondIngredient + "\n" +thirdIngredient + "\n" + drinkInstruction);
+
+                        String drinkImage = drinkList.get(0).getStrDrinkThumb();
+                        Picasso.get()
+                                .load(drinkImage)
+                                .into(randomDrinkSelectedImageView);
                     }
 
                     @Override

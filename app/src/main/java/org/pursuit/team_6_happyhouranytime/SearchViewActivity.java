@@ -40,7 +40,6 @@ public class SearchViewActivity extends AppCompatActivity implements SearchView.
                 .getBartenderService()
                 .getDrinks()
                 .enqueue(new Callback<DrinksResponse>() {
-
                     @Override
                     public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
                         Log.d(TAG, "OnResponse" + response.body());

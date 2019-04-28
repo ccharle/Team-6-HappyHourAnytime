@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViews();
         dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setCancelable(false);
         dialog.setTitle("WARNING!!!");
@@ -53,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+
+        findViews();
     }
 
     private void findViews() {

@@ -10,6 +10,7 @@ import android.util.Log;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
 import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
+import org.pursuit.team_6_happyhouranytime.recyclerview.DrinkAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

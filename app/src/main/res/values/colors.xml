@@ -6,4 +6,5 @@
     <color name="backgroundColor">#D81B60</color>
     <color name="colorAccent">#5EC0AE</color>
     <color name="snackColor">#FFF</color>
+    <color name = "splashBackground">#E75FAA</color>
 </resources>

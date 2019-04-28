@@ -20,9 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchViewActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-
     private static final String TAG = "search";
-
     private RecyclerView recyclerView;
     private SearchView searchView;
     private List<Drinks> drinkList;

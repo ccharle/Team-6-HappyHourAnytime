@@ -2,6 +2,7 @@ package org.pursuit.team_6_happyhouranytime;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.util.Log;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
 import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
+import org.pursuit.team_6_happyhouranytime.recyclerview.DrinkAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +23,16 @@ public class SearchViewActivity extends AppCompatActivity implements SearchView.
 
     private static final String TAG = "search";
 
+    private RecyclerView recyclerView;
+    private SearchView searchView;
     private List<Drinks> drinkList;
     private DrinkAdapter adapter;
-    private String input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_view);
-        RecyclerView recyclerView = findViewById(R.id.search_recyclerView);
+        recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
         getRetrofitCall();
     }
@@ -47,6 +50,9 @@ public class SearchViewActivity extends AppCompatActivity implements SearchView.
                         if (response.body() != null) {
                             drinkList.addAll(response.body().getDrinks());
                         }
+                        adapter = new DrinkAdapter(drinkList);
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     }
 
                     @Override
@@ -54,6 +60,8 @@ public class SearchViewActivity extends AppCompatActivity implements SearchView.
                         Log.d(TAG, t.getMessage());
                     }
                 });
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(this);
     }
 
     @Override
@@ -65,7 +73,7 @@ public class SearchViewActivity extends AppCompatActivity implements SearchView.
     public boolean onQueryTextChange(String s) {
         List<Drinks> newDrinkList = new ArrayList<>();
         for (Drinks d : drinkList) {
-            if (d.getStrDrink().toLowerCase().startsWith(input.toLowerCase()))
+            if (d.getStrDrink().toLowerCase().startsWith(s.toLowerCase()))
                 newDrinkList.add(d);
         }
         adapter.setData(newDrinkList);

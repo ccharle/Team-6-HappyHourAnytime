@@ -30,6 +30,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
+    private TextView randomInstuctions;
     private ImageView randomDrinkSelectedImageView;
 
     private List <Drinks> drinkList;
@@ -42,6 +43,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);
         randomDrinkSelectedImageView = findViewById(R.id.random_drink_imageview);
+        randomInstuctions = findViewById(R.id.instructions);
         getRetrofitCall();
     }
 
@@ -65,7 +67,8 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
                         String drinkInstruction = drinkList.get(0).getStrInstructions();
 
-                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n "+ secondIngredient + "\n" +thirdIngredient + "\n" + drinkInstruction);
+                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n "+ secondIngredient + "\n" +thirdIngredient);
+                        randomInstuctions.setText(drinkInstruction);
 
                         String drinkImage = drinkList.get(0).getStrDrinkThumb();
                         Picasso.get()

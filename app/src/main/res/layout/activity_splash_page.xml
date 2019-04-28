@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pinkbubble"
+    android:background="#fff"
     android:orientation="vertical"
     tools:context=".SplashPage">
 
-    <TextView
-        android:id="@+id/hhaLogo"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/unkempt_bold"
-        android:gravity="center"
-        android:text="HAPPY \nHOUR\nANYTIME"
-        android:textColor="#FFF"
-        android:textSize="48sp" />
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/logo" />
+
+
     <ImageView
         android:id="@+id/splash_imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </LinearLayout>

@@ -80,12 +80,11 @@ public class NameOrIngredientActivityDisplay extends AppCompatActivity {
     }
 
     public void findViews() {
-        displayName = findViewById(R.id.display_drink_name_textView);
-        displayIngredient = findViewById(R.id.ingredient_textView);
-        ingredientInfo = findViewById(R.id.ingredient_info_textView);
-        instructionText = findViewById(R.id.instruction_textView);
+        displayName = findViewById(R.id.name_drink_textview);
+        //displayIngredient = findViewById(R.id.inst_info_textView);
+        ingredientInfo = findViewById(R.id.inst_info_textView);
+        instructionText = findViewById(R.id.inst_header_textView);
         glassText = findViewById(R.id.glass_textView);
-        glassInfoText = findViewById(R.id.glass_info_textView);
-        displayDrink = findViewById(R.id.display_drink_imageView);
+        displayDrink = findViewById(R.id.selected_drink_imageView);
     }
 }

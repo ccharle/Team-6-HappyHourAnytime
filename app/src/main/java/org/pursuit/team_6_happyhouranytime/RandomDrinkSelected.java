@@ -42,7 +42,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
 
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);
-        randomDrinkSelectedImageView = findViewById(R.id.random_drink_imageview);
+        randomDrinkSelectedImageView = findViewById(R.id.random_selected_drink_imageView);
         randomInstuctions = findViewById(R.id.instructions);
         getRetrofitCall();
     }

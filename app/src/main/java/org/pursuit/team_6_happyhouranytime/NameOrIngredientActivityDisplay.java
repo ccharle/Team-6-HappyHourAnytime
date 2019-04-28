@@ -2,7 +2,6 @@ package org.pursuit.team_6_happyhouranytime;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.DimenRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NameOrIngredientActivityDisplay extends AppCompatActivity {
+
     private TextView displayName, displayIngredient, ingredientInfo, instructionText, glassText, glassInfoText;
     private ImageView displayDrink;
     private String drinkId;
@@ -88,3 +88,4 @@ public class NameOrIngredientActivityDisplay extends AppCompatActivity {
         displayDrink = findViewById(R.id.selected_drink_imageView);
     }
 }
+

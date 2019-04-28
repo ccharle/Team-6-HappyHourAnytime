@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IngredientSearchView"></activity>
+        <activity android:name=".recyclerview.IngredientSearchView"></activity>
         <activity android:name=".SplashPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

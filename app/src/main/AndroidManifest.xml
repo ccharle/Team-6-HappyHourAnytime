@@ -11,10 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IngredientActivityDisplay"></activity>
+        <activity
+            android:name=".recyclerview.IngredientSearchViewActivity"
+            android:label="@string/title_activity_ingredeint_search_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".IngredientActivityDisplay" />
         <activity android:name=".NameOrIngredientActivityDisplay" />
-        <activity android:name=".SearchViewActivity"></activity>
-        <activity android:name=".RandomDrinkSelected"></activity>
+        <activity android:name=".SearchViewActivity" />
+        <activity android:name=".RandomDrinkSelected" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

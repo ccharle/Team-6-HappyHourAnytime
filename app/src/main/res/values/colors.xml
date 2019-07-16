@@ -8,4 +8,9 @@
     <color name="snackColor">#FFF</color>
     <color name = "splashBackground">#E75FAA</color>
     <color name="text_color_black">#000</color>
+    <color name ="amber">#F3BC50</color>
+    <color name ="blue_green">#25C0C0</color>
+    <color name ="magenta">#FA53A0</color>
+    <color name ="hot_pink">#FC8BC0</color>
+    <color name="rose_pink"></color>
 </resources>

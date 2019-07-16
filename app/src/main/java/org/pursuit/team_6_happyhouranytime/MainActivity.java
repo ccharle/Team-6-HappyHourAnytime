@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.recyclerview.IngredientSearchView;
+import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
 import org.pursuit.team_6_happyhouranytime.views.SearchFragment;
 
 import java.util.List;
@@ -52,45 +53,12 @@ public class MainActivity extends AppCompatActivity {
 //                .show();
     }
 
-        private void setViews () {
-            Button searchByNameButton = findViewById(R.id.search_by_name_button);
-            Button searchByIngredientsButton = findViewById(R.id.search_by_ingredients_button);
-            Button pickADrinkAtRandomButton = findViewById(R.id.pick_random_drink_button);
+    private void setViews() {
 
-            searchByNameButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    SearchFragment searchFragment = new SearchFragment();
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.main_container, searchFragment)
-                            .commit();
-
-                    Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
-                }
-
-
-            });
-
-
-            searchByIngredientsButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, IngredientSearchView.class);
-                    startActivity(intent);
-
-
-                }
-            });
-
-            pickADrinkAtRandomButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, RandomDrinkSelected.class);
-
-                    startActivity(intent);
-                }
-            });
-        }
+        RandomDrinksFragment randomDrinksFragment = new RandomDrinksFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_container, randomDrinksFragment)
+                .commit();
+    }
 }

@@ -50,7 +50,7 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
     }
 
     private void setViews(View v) {
-      //  searchView = v.findViewById(R.id.searchView);
+        searchView = v.findViewById(R.id.searchView);
         recyclerView = v.findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
         getRetrofitCall();
@@ -98,6 +98,6 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
                     }
                 });
 
-//        searchView.setOnQueryTextListener(this);
+        searchView.setOnQueryTextListener(this);
     }
 }

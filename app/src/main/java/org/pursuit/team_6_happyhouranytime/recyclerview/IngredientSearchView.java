@@ -37,7 +37,7 @@ public class IngredientSearchView extends AppCompatActivity implements SearchVie
         recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        //searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(this);
     }
 

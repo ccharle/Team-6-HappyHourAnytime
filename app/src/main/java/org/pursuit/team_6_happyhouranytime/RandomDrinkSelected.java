@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RandomDrinkSelected extends AppCompatActivity {
+public class  RandomDrinkSelected extends AppCompatActivity {
 
     private static final String TAG = "random";
 
@@ -38,7 +38,7 @@ public class RandomDrinkSelected extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_random_drink_selected);
+        setContentView(R.layout.random_drinks);
 
         randomDrinkSelectedTextview = findViewById(R.id.name_of_random_drink_textview);
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);

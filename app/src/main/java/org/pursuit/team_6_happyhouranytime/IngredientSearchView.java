@@ -1,15 +1,11 @@
 package org.pursuit.team_6_happyhouranytime;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
@@ -36,12 +32,12 @@ public class IngredientSearchView extends AppCompatActivity implements SearchVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_view);
+        setContentView(R.layout.search_fragment);
 
         recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        searchView = findViewById(R.id.searchView);
+        //searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(this);
     }
 

@@ -5,4 +5,7 @@
     <string name="title_activity_name_display">NameActivityDisplay</string>
     <string name="title_activity_ingrdient_display">IngrdientActivityDisplay</string>
     <string name="title_activity_ingredeint_search_view">IngredeintSearchViewActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

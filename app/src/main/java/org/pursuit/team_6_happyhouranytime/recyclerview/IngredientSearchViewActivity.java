@@ -36,7 +36,7 @@ public class IngredientSearchViewActivity extends AppCompatActivity implements S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_view);
+        setContentView(R.layout.search_fragment);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,7 +76,7 @@ public class IngredientSearchViewActivity extends AppCompatActivity implements S
                         Log.d(TAG, t.getMessage());
                     }
                 });
-        searchView = findViewById(R.id.searchView);
+        //searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(this);
     }
 

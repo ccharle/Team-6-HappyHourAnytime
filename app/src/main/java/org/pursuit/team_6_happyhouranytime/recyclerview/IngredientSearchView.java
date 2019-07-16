@@ -32,7 +32,7 @@ public class IngredientSearchView extends AppCompatActivity implements SearchVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_view);
+        setContentView(R.layout.search_fragment);
 
         recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);

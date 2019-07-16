@@ -32,12 +32,12 @@ public class IngredientActivityDisplay extends AppCompatActivity implements Sear
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_view);
+        setContentView(R.layout.search_fragment);
 
         recyclerView = findViewById(R.id.search_recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        searchView = findViewById(R.id.searchView);
+        //searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(this);
     }
 

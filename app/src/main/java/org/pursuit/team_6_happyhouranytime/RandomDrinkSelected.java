@@ -15,9 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
-import org.pursuit.team_6_happyhouranytime.network.BartenderService;
 import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
-import org.pursuit.team_6_happyhouranytime.network.ServiceGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +27,6 @@ import retrofit2.Response;
 public class  RandomDrinkSelected extends AppCompatActivity {
 
     private static final String TAG = "random";
-    private ServiceGenerator serviceGenerator;
 
     private TextView randomDrinkSelectedTextview;
     private TextView randomDrinkSelectedIngredientsTextView;
@@ -47,28 +44,10 @@ public class  RandomDrinkSelected extends AppCompatActivity {
         randomDrinkSelectedIngredientsTextView  = findViewById(R.id.random_drink_ingredients_textview);
         randomDrinkSelectedImageView = findViewById(R.id.random_selected_drink_imageView);
         randomInstuctions = findViewById(R.id.instructions);
-        bartenderServiceCall();
+        getRetrofitCall();
     }
 
-
-    public void bartenderServiceCall() {
-//        BartenderService client = ServiceGenerator.createService(BartenderService.class);
-//        Call<DrinksResponse> call = client.getRandomDrinks();
-//        call.enqueue(new Callback<DrinksResponse>() {
-//            @Override
-//            public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DrinksResponse> call, Throwable t) {
-//
-//            }
-//        });
-
-
-
-
+    public void getRetrofitCall() {
         RetrofitSingleton.getInstance()
                 .getBartenderService()
                 .getRandomDrinks()

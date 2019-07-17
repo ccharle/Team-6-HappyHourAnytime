@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4CAF50</color>
-    <color name="colorPrimaryDark">#65F36B</color>
+    <color name="colorPrimary">#ef9a9a</color>
+    <color name="colorPrimaryDark">#ba6b6c</color>
+    <color name="colorPrimaryLight">#ffcccb</color>
+    <color name="secondaryLight">#ffffff</color>
+    <color name="colorSecondary">#ffebee</color>
+    <color name="secondaryDark">#ccb9bc</color>
+
     <color name="colorForText">#022648</color>
     <color name="backgroundColor">#D81B60</color>
     <color name="colorAccent">#5EC0AE</color>
     <color name="snackColor">#FFF</color>
-    <color name = "splashBackground">#E75FAA</color>
+    <color name="splashBackground">#E75FAA</color>
     <color name="text_color_black">#000</color>
-    <color name ="amber">#F3BC50</color>
-    <color name ="blue_green">#25C0C0</color>
-    <color name ="magenta">#FA53A0</color>
-    <color name ="hot_pink">#FC8BC0</color>
+    <color name="amber">#F3BC50</color>
+    <color name="blue_green">#25C0C0</color>
+    <color name="magenta">#FA53A0</color>
+    <color name="hot_pink">#FC8BC0</color>
     <color name="rose_pink"></color>
 </resources>

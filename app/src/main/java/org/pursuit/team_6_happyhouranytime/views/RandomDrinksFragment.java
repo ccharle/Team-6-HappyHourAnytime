@@ -1,10 +1,11 @@
 package org.pursuit.team_6_happyhouranytime.views;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,33 +19,28 @@ import com.squareup.picasso.Picasso;
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Drinks;
 import org.pursuit.team_6_happyhouranytime.models.DrinksResponse;
-import org.pursuit.team_6_happyhouranytime.network.RetrofitSingleton;
+import org.pursuit.team_6_happyhouranytime.network.BartenderService;
+import org.pursuit.team_6_happyhouranytime.network.ServiceGenerator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.support.constraint.Constraints.TAG;
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RandomDrinksFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RandomDrinksFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RandomDrinksFragment extends Fragment {
 
     private static final String TAG = "random";
 
+    private CoordinatorLayout rootLayout;
     private TextView randomDrinkSelectedTextview;
-    private TextView randomDrinkSelectedIngredientsTextView;
+    private TextView ingredientsTextView;
     private TextView randomInstuctions;
     private ImageView randomDrinkSelectedImageView;
+    private FloatingActionButton floatingActionButton;
+    List<String> drinkIngredients = new ArrayList<>();
 
     private List<Drinks> drinkList;
     private static final String ARG_PARAM1 = "param1";
@@ -53,21 +49,10 @@ public class RandomDrinksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
 
     public RandomDrinksFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RandomDrinksFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static RandomDrinksFragment newInstance(String param1, String param2) {
         RandomDrinksFragment fragment = new RandomDrinksFragment();
         Bundle args = new Bundle();
@@ -96,57 +81,90 @@ public class RandomDrinksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setViews(view);
-        getRetrofitCall();
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        getRandomDrinks();
+        viewBehaviours();
     }
 
     public void setViews(View v) {
+        rootLayout = v.findViewById(R.id.random_drinks_rootlayout);
         randomDrinkSelectedTextview = v.findViewById(R.id.name_of_random_drink_textview);
-        randomDrinkSelectedIngredientsTextView = v.findViewById(R.id.random_drink_ingredients_textview);
+        ingredientsTextView = v.findViewById(R.id.random_drink_ingredients_textview);
         randomDrinkSelectedImageView = v.findViewById(R.id.random_selected_drink_imageView);
         randomInstuctions = v.findViewById(R.id.instructions);
+        floatingActionButton = v.findViewById(R.id.fab);
 
 
     }
 
-    public void getRetrofitCall() {
-        RetrofitSingleton.getInstance()
-                .getBartenderService()
-                .getRandomDrinks()
-                .enqueue(new Callback<DrinksResponse>() {
-                    @Override
-                    public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
-                        Log.d(TAG, "OnResponse" + response.body());
-                        drinkList = new ArrayList<>();
-                        if (response.body() != null) {
-                            drinkList.addAll(response.body().getDrinks());
-                        }
-                        randomDrinkSelectedTextview.setText(drinkList.get(0).getStrDrink());
+    public void getRandomDrinks() {
+        BartenderService client = ServiceGenerator.createService(BartenderService.class);
+        Call<DrinksResponse> drinksResponseCall = client.getRandomDrinks();
+        drinksResponseCall.enqueue(new Callback<DrinksResponse>() {
+            @Override
+            public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
+                Log.d(TAG, "OnResponse" + response.body());
+                drinkList = new ArrayList<>();
+                if (response.body() != null) {
+                    drinkList.addAll(response.body().getDrinks());
+                }
 
-                        String firstIngredient = drinkList.get(0).getStrIngredient1();
-                        String secondIngredient = drinkList.get(0).getStrIngredient2();
-                        String thirdIngredient = drinkList.get(0).getStrIngredient3();
 
-                        String drinkInstruction = drinkList.get(0).getStrInstructions();
+                for (int i = 0; i < drinkList.size(); i++) {
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient1());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient2());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient3());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient4());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient5());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient6());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient7());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient8());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient9());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient10());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient11());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient12());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient13());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient14());
+                    drinkIngredients.add(drinkList.get(i).getStrIngredient15());
 
-                        randomDrinkSelectedIngredientsTextView.setText(firstIngredient + "\n " + secondIngredient + "\n" + thirdIngredient);
-                        randomInstuctions.setText(drinkInstruction);
+                    drinkIngredients.removeAll(Arrays.asList("", null));
+                }
+                for (int i = 0; i < drinkIngredients.size(); i++) {
+                    ingredientsTextView.append(drinkIngredients.get(i));
+                    ingredientsTextView.append("\n");
 
-                        String drinkImage = drinkList.get(0).getStrDrinkThumb();
-                        Picasso.get()
-                                .load(drinkImage)
-                                .into(randomDrinkSelectedImageView);
-                    }
+                }
+                randomDrinkSelectedTextview.setText(drinkList.get(0).getStrDrink());
 
-                    @Override
-                    public void onFailure(Call<DrinksResponse> call, Throwable t) {
-                        Log.d(TAG, t.getMessage());
-                    }
-                });
+                String drinkInstruction = drinkList.get(0).getStrInstructions();
+
+                randomInstuctions.setText(drinkInstruction);
+
+                String drinkImage = drinkList.get(0).getStrDrinkThumb();
+                Picasso.get()
+                        .load(drinkImage)
+                        .into(randomDrinkSelectedImageView);
+            }
+
+            @Override
+            public void onFailure(Call<DrinksResponse> call, Throwable t) {
+                Snackbar snackbar = Snackbar.make(rootLayout, "Check Connection", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+                Log.d(TAG, t.getMessage());
+            }
+        });
+
+
+    }
+
+    private void viewBehaviours() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ingredientsTextView.setText(null);
+                drinkIngredients.removeAll(drinkIngredients);
+                getRandomDrinks();
+            }
+        });
     }
 
 

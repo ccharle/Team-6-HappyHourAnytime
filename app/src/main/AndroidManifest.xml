@@ -21,7 +21,6 @@
         </activity>
         <activity android:name=".IngredientActivityDisplay" />
         <activity android:name=".NameOrIngredientActivityDisplay" />
-        <activity android:name=".RandomDrinkSelected" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

@@ -3,10 +3,15 @@ package org.pursuit.team_6_happyhouranytime.models;
 import android.os.Parcel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Drinks implements Serializable {
     private String idDrink;
     private String strDrink;
+    private String strCategory;
+    private String strAlcoholic;
+    private String strGlass;
     private String strInstructions;
     private String strIngredient1;
     private String strIngredient2;
@@ -127,68 +132,89 @@ public class Drinks implements Serializable {
     }
 
 
-
     public String getStrInstructions() {
         return strInstructions;
     }
 
     public String getStrIngredient1() {
+
+
         return strIngredient1;
     }
 
     public String getStrIngredient2() {
+
         return strIngredient2;
     }
 
     public String getStrIngredient3() {
+
+
         return strIngredient3;
     }
 
     public String getStrIngredient4() {
+
         return strIngredient4;
     }
 
     public String getStrIngredient5() {
+
         return strIngredient5;
     }
 
     public String getStrIngredient6() {
+
         return strIngredient6;
     }
 
     public String getStrIngredient7() {
+
         return strIngredient7;
+
     }
 
     public String getStrIngredient8() {
+
         return strIngredient8;
+
     }
 
     public String getStrIngredient9() {
+
         return strIngredient9;
+
     }
 
     public String getStrIngredient10() {
+
         return strIngredient10;
     }
 
     public String getStrIngredient11() {
+
         return strIngredient11;
+
     }
 
     public String getStrIngredient12() {
+
         return strIngredient12;
     }
 
     public String getStrIngredient13() {
+
         return strIngredient13;
     }
 
     public String getStrIngredient14() {
+
         return strIngredient14;
+
     }
 
     public String getStrIngredient15() {
+
         return strIngredient15;
     }
 
@@ -255,4 +281,26 @@ public class Drinks implements Serializable {
     public String getStrDrinkThumb() {
         return strDrinkThumb;
     }
+
+//    public ArrayList<String> getDrinkIngredients() {
+//        ArrayList<String> ingredientsList = new ArrayList<>();
+//        ingredientsList.addAll(Arrays.asList(strIngredient1,
+//                strIngredient2,
+//                strIngredient3,
+//                strIngredient4,
+//                strIngredient5,
+//                strIngredient6,
+//                strIngredient7,
+//                strIngredient8,
+//                strIngredient9,
+//                strIngredient10,
+//                strIngredient11,
+//                strIngredient12,
+//                strIngredient13,
+//                strIngredient14,
+//                strIngredient15));
+//ingredientsList.removeAll(Arrays.asList(""));
+//    return ingredientsList;
+//    }
+
 }

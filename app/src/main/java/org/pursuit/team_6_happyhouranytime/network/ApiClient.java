@@ -1,37 +1,57 @@
 package org.pursuit.team_6_happyhouranytime.network;
 
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static ApiClient instance;
     private static Retrofit retrofit;
+    private CocktailsAPI cocktailsAPI;
     private static final String BASE_URL = "https://www.thecocktaildb.com/";
 
 
-     public static  <S> S createRequest(Class <S> serviceClass){
-         if(instance == null){
+    private ApiClient() {
+        initApis();
+    }
 
-              Retrofit.Builder builder = new Retrofit.Builder().
-                     baseUrl(BASE_URL)
-                     .addConverterFactory(GsonConverterFactory.create());
-                retrofit = builder.build();
-                instance = new ApiClient();
+    public static ApiClient getInstance() {
+        if (instance != null) {
+            return instance;
+        }
+
+        instance = new ApiClient();
+
+        return instance;
+    }
+
+    private void initApis() {
+        cocktailsAPI = createRetrofit(BASE_URL).create(CocktailsAPI.class);
+    }
+
+    private Retrofit createRetrofit(String baseUrl) {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        OkHttpClient client = builder.build();
+        return new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+    }
+
+    public Call<CocktailResponse> getRandom() {
+        return cocktailsAPI.getRandomCocktails();
 
 
-         }
-
-         return  retrofit.create(serviceClass);
-
-
-
-
-
-     }
-
-
-
-
+    }
+    public Call<CocktailResponse>searchCocktails(){
+        return cocktailsAPI.getCocktails();
+    }
 }
+
+
+

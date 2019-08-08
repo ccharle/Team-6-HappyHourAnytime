@@ -14,7 +14,7 @@ import org.pursuit.team_6_happyhouranytime.presenter.MainPresenter;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements CocktailsContract.View {
+public class MainActivity extends AppCompatActivity implements CocktailsContract.View,CocktailsContract.Model.OnFinishedListener {
     private static final String TAG = "main";
     private MainPresenter mainPresenter;
     public static final String DRINK_KEY = "drinks";
@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity implements CocktailsContract
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        cocktailsContract = new Coc
+        mainPresenter = new MainPresenter(this);
+
+
         setViews();
 
 //        dialog = new AlertDialog.Builder(MainActivity.this);
@@ -58,23 +60,34 @@ public class MainActivity extends AppCompatActivity implements CocktailsContract
 
     }
 
+
     @Override
-    public void refresh() {
+    public void showProgress() {
 
     }
 
     @Override
-    public void showLoading() {
+    public void hideProgress() {
 
     }
 
     @Override
-    public void showFailedMessage() {
+    public void setDataToRecyclerView(List<Cocktail> movieArrayList) {
 
     }
 
     @Override
-    public void showRandomCocktail() {
+    public void onResponseFailure(Throwable throwable) {
+
+    }
+
+    @Override
+    public void onFinished(List<Cocktail> cocktailList) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
 
     }
 }

@@ -22,18 +22,15 @@ public class CocktailListModel implements CocktailsContract.Model {
      *
      * @param onFinishedListener
      */
-
-
-    private CocktailsAPI cocktailsAPI = ApiClient.createRequest(CocktailsAPI.class);
+    private ApiClient apiClient;
     private final String TAG = "CocktailsListModel";
     private List<Cocktail> cocktails = new ArrayList<>();
 
     @Override
     public void getRandomCocktailsList(final OnFinishedListener onFinishedListener) {
 
-
-        Call<CocktailResponse> cocktailResponseCall = cocktailsAPI.getRandomCocktails();
-        cocktailResponseCall.enqueue(new Callback<CocktailResponse>() {
+        apiClient = ApiClient.getInstance();
+        apiClient.getRandom().enqueue(new Callback<CocktailResponse>() {
             @Override
             public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
 
@@ -41,22 +38,20 @@ public class CocktailListModel implements CocktailsContract.Model {
                 Log.d(TAG, "Random Drinks Response" + response.body());
                 onFinishedListener.onFinished(cocktails);
 
-
             }
 
             @Override
             public void onFailure(Call<CocktailResponse> call, Throwable t) {
-                Log.d(TAG, "Failure" + t.getMessage());
-
+                Log.d(TAG,"onFailure" + t.getMessage());
             }
         });
+
 
     }
 
     @Override
     public void searchCocktails(OnFinishedListener onFinishedListener) {
-        Call<CocktailResponse> cocktailResponseCall = cocktailsAPI.getCocktails();
-        cocktailResponseCall.enqueue(new Callback<CocktailResponse>() {
+        apiClient.searchCocktails().enqueue(new Callback<CocktailResponse>() {
             @Override
             public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
 
@@ -67,6 +62,7 @@ public class CocktailListModel implements CocktailsContract.Model {
 
             }
         });
+
 
     }
 

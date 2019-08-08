@@ -25,13 +25,13 @@ public interface CocktailsContract {
 
     interface View {
 
-        void refresh();
+        void showProgress();
 
-        void showLoading();
+        void hideProgress();
 
-        void showFailedMessage();
+        void setDataToRecyclerView(List<Cocktail> movieArrayList);
 
-        void showRandomCocktail();
+        void onResponseFailure(Throwable throwable);
 
 
     }

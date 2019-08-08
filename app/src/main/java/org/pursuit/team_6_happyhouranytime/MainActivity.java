@@ -1,37 +1,35 @@
 package org.pursuit.team_6_happyhouranytime;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import org.pursuit.team_6_happyhouranytime.models.Drinks;
-import org.pursuit.team_6_happyhouranytime.recyclerview.IngredientSearchView;
-import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
-import org.pursuit.team_6_happyhouranytime.views.SearchFragment;
+import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.models.CocktailListModel;
+import org.pursuit.team_6_happyhouranytime.presentation.CocktailsContract;
+import org.pursuit.team_6_happyhouranytime.presenter.MainPresenter;
 
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CocktailsContract.View {
     private static final String TAG = "main";
+    private MainPresenter mainPresenter;
     public static final String DRINK_KEY = "drinks";
     private AlertDialog.Builder dialog;
-    private List<Drinks> drinkList;
+    private List<Cocktail> drinkList;
+    private CocktailListModel.OnFinishedListener onFinishedListener;
+    private CocktailsContract cocktailsContract;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        cocktailsContract = new Coc
         setViews();
+
 //        dialog = new AlertDialog.Builder(MainActivity.this);
 //        dialog.setCancelable(false);
 //        dialog.setTitle("WARNING!!!");
@@ -54,11 +52,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        CocktailListModel cocktailListModel = new CocktailListModel();
+        cocktailListModel.getRandomCocktailsList(onFinishedListener);
 
-        RandomDrinksFragment randomDrinksFragment = new RandomDrinksFragment();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_container, randomDrinksFragment)
-                .commit();
+
+    }
+
+    @Override
+    public void refresh() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showFailedMessage() {
+
+    }
+
+    @Override
+    public void showRandomCocktail() {
+
     }
 }

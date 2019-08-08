@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Drinks implements Serializable {
+public class Cocktail implements Serializable {
     private String idDrink;
     private String strDrink;
     private String strCategory;
@@ -48,7 +48,7 @@ public class Drinks implements Serializable {
     private String strDrinkThumb;
 
 
-    public Drinks(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+    public Cocktail(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
         this.idDrink = idDrink;
         this.strDrink = strDrink;
         this.strInstructions = strInstructions;
@@ -86,7 +86,7 @@ public class Drinks implements Serializable {
     }
 
 
-    protected Drinks(Parcel in) {
+    protected Cocktail(Parcel in) {
         idDrink = in.readString();
         strDrink = in.readString();
         strInstructions = in.readString();
@@ -278,29 +278,6 @@ public class Drinks implements Serializable {
         return strMeasure15;
     }
 
-    public String getStrDrinkThumb() {
-        return strDrinkThumb;
-    }
 
-//    public ArrayList<String> getDrinkIngredients() {
-//        ArrayList<String> ingredientsList = new ArrayList<>();
-//        ingredientsList.addAll(Arrays.asList(strIngredient1,
-//                strIngredient2,
-//                strIngredient3,
-//                strIngredient4,
-//                strIngredient5,
-//                strIngredient6,
-//                strIngredient7,
-//                strIngredient8,
-//                strIngredient9,
-//                strIngredient10,
-//                strIngredient11,
-//                strIngredient12,
-//                strIngredient13,
-//                strIngredient14,
-//                strIngredient15));
-//ingredientsList.removeAll(Arrays.asList(""));
-//    return ingredientsList;
-//    }
 
 }

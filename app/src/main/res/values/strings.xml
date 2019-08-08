@@ -4,8 +4,10 @@
     <string name="title_activity_ingredient_result">IngredientActivityResult</string>
     <string name="title_activity_name_display">NameActivityDisplay</string>
     <string name="title_activity_ingrdient_display">IngrdientActivityDisplay</string>
-    <string name="title_activity_ingredeint_search_view">IngredeintSearchViewActivity</string>
+    <string name="title_activity_ingredient_search_view">IngredientSearchViewActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
 </resources>

@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/random_drinks_rootlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rounded_layout"
         android:orientation="vertical"
         android:padding="@dimen/layout_margin_8"
         tools:context=".RandomDrinkSelected">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/ic_refresh_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
 
         <TextView
-            android:id="@+id/name_of_random_drink_textview"
+            android:id="@+id/cocktail_name_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:textAlignment="center"
@@ -49,118 +36,62 @@
         <LinearLayout
             android:id="@+id/imageview_layout"
             android:layout_width="match_parent"
-            android:layout_height="394dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_toStartOf="@+id/ingredients_info_layout"
+            android:layout_marginBottom="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/fab"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/info_tablayout">
 
 
             <ImageView
-                android:id="@+id/random_selected_drink_imageView"
+                android:id="@+id/random_cocktail_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_layout"
                 android:scaleType="fitXY"
                 android:src="@drawable/cocktail_background" />
 
-            <android.support.design.widget.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monday" />
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tuesday" />
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wednesday" />
-            </android.support.design.widget.TabLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/ingredients_info_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_layout_white"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_layout">
-
-            <TextView
-                android:id="@+id/ingredient_header_textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="@string/ingredients"
-                android:textAlignment="center"
-                android:textColor="@color/colorForText"
-                android:textSize="24sp"
-                tools:layout_editor_absoluteX="210dp"
-                tools:layout_editor_absoluteY="244dp" />
-
-            <TextView
-                android:id="@+id/random_drink_ingredients_textview"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_toStartOf="@+id/ingredient_header_textView"
-                android:gravity="center"
-                android:padding="@dimen/layout_margin_8"
-                android:textColor="@color/colorForText"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="288dp" />
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_refresh_black_24dp"
+                />
 
         </LinearLayout>
 
-        <android.support.design.widget.TabLayout
+
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/info_tablayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredients"
+                />
+
+            <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/instructions" />
 
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/instructions" />
 
+        </com.google.android.material.tabs.TabLayout>
 
-        </android.support.design.widget.TabLayout>
-
-
-        <!--</LinearLayout>-->
-
-    </android.support.constraint.ConstraintLayout>
-</android.support.design.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

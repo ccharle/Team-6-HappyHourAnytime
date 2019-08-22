@@ -45,6 +45,10 @@ public class Cocktail implements Serializable {
     private String strMeasure15;
 
 
+    public String getStrDrinkThumb() {
+        return strDrinkThumb;
+    }
+
     private String strDrinkThumb;
 
 

@@ -17,6 +17,7 @@ public class MainPresenter implements CocktailsContract.Presenter, CocktailsCont
     private ApiClient apiClient;
     private List<Cocktail> cocktails = new ArrayList<>();
     private WeakReference<CocktailsContract.View> viewWeakReference;
+    //Wahtever presenter needs pass it into the constructor
 
 
     public void attach(CocktailsContract presentation) {

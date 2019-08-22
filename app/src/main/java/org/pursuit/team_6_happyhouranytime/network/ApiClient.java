@@ -9,8 +9,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static ApiClient instance;
-    private static Retrofit retrofit;
+    private static ApiClient instance = null;
     private CocktailsAPI cocktailsAPI;
     private static final String BASE_URL = "https://www.thecocktaildb.com/";
 
@@ -20,18 +19,20 @@ public class ApiClient {
     }
 
     public static ApiClient getInstance() {
-        if (instance != null) {
+        if (instance == null) {
+            instance = new ApiClient();
+            instance.initApis();
             return instance;
         }
-
-        instance = new ApiClient();
 
         return instance;
     }
 
+
     private void initApis() {
         cocktailsAPI = createRetrofit(BASE_URL).create(CocktailsAPI.class);
     }
+
 
     private Retrofit createRetrofit(String baseUrl) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -48,7 +49,8 @@ public class ApiClient {
 
 
     }
-    public Call<CocktailResponse>searchCocktails(){
+
+    public Call<CocktailResponse> searchCocktails() {
         return cocktailsAPI.getCocktails();
     }
 }

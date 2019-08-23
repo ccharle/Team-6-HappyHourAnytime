@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_ingredeint_search_view">
 
 
-    <android.support.v7.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/ingredient_searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,9 +22,9 @@
 
         <requestFocus />
 
-    </android.support.v7.widget.SearchView>
+    </androidx.appcompat.widget.SearchView>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ingredient_search_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"

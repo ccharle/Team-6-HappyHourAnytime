@@ -3,10 +3,15 @@ package org.pursuit.team_6_happyhouranytime.models;
 import android.os.Parcel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Drinks implements Serializable {
+public class Cocktail implements Serializable {
     private String idDrink;
     private String strDrink;
+    private String strCategory;
+    private String strAlcoholic;
+    private String strGlass;
     private String strInstructions;
     private String strIngredient1;
     private String strIngredient2;
@@ -40,10 +45,14 @@ public class Drinks implements Serializable {
     private String strMeasure15;
 
 
+    public String getStrDrinkThumb() {
+        return strDrinkThumb;
+    }
+
     private String strDrinkThumb;
 
 
-    public Drinks(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
+    public Cocktail(String idDrink, String strDrink, String strInstructions, String strIngredient1, String strIngredient2, String strIngredient3, String strMeasure1, String strMeasure2, String strMeasure3, String strDrinkThumb) {
         this.idDrink = idDrink;
         this.strDrink = strDrink;
         this.strInstructions = strInstructions;
@@ -81,7 +90,7 @@ public class Drinks implements Serializable {
     }
 
 
-    protected Drinks(Parcel in) {
+    protected Cocktail(Parcel in) {
         idDrink = in.readString();
         strDrink = in.readString();
         strInstructions = in.readString();
@@ -127,68 +136,89 @@ public class Drinks implements Serializable {
     }
 
 
-
     public String getStrInstructions() {
         return strInstructions;
     }
 
     public String getStrIngredient1() {
+
+
         return strIngredient1;
     }
 
     public String getStrIngredient2() {
+
         return strIngredient2;
     }
 
     public String getStrIngredient3() {
+
+
         return strIngredient3;
     }
 
     public String getStrIngredient4() {
+
         return strIngredient4;
     }
 
     public String getStrIngredient5() {
+
         return strIngredient5;
     }
 
     public String getStrIngredient6() {
+
         return strIngredient6;
     }
 
     public String getStrIngredient7() {
+
         return strIngredient7;
+
     }
 
     public String getStrIngredient8() {
+
         return strIngredient8;
+
     }
 
     public String getStrIngredient9() {
+
         return strIngredient9;
+
     }
 
     public String getStrIngredient10() {
+
         return strIngredient10;
     }
 
     public String getStrIngredient11() {
+
         return strIngredient11;
+
     }
 
     public String getStrIngredient12() {
+
         return strIngredient12;
     }
 
     public String getStrIngredient13() {
+
         return strIngredient13;
     }
 
     public String getStrIngredient14() {
+
         return strIngredient14;
+
     }
 
     public String getStrIngredient15() {
+
         return strIngredient15;
     }
 
@@ -252,7 +282,6 @@ public class Drinks implements Serializable {
         return strMeasure15;
     }
 
-    public String getStrDrinkThumb() {
-        return strDrinkThumb;
-    }
+
+
 }

@@ -1,21 +1,21 @@
 package org.pursuit.team_6_happyhouranytime.recyclerview;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import org.pursuit.team_6_happyhouranytime.R;
-import org.pursuit.team_6_happyhouranytime.models.Drinks;
+import org.pursuit.team_6_happyhouranytime.models.Cocktail;
 
 import java.util.List;
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
 
-    private List<Drinks> drinksList;
+    private List<Cocktail> cocktailList;
 
-    public DrinkAdapter(List<Drinks> drinksList) {
-        this.drinksList = drinksList;
+    public DrinkAdapter(List<Cocktail> cocktailList) {
+        this.cocktailList = cocktailList;
     }
 
     @NonNull
@@ -28,16 +28,16 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull DrinkViewHolder drinkViewHolder, int i) {
-      drinkViewHolder.onBind(drinksList.get(i));
+      drinkViewHolder.onBind(cocktailList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return drinksList.size();
+        return cocktailList.size();
     }
 
-    public void setData(List<Drinks> newDrinkList) {
-        this.drinksList = newDrinkList;
+    public void setData(List<Cocktail> newDrinkList) {
+        this.cocktailList = newDrinkList;
         notifyDataSetChanged();
     }
 }

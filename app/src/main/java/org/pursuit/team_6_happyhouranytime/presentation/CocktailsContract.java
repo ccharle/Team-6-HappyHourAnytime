@@ -11,13 +11,17 @@ public interface CocktailsContract {
 
     interface Model {
 
-        void getCocktails(List<CocktailResponse> cocktailResponseList);
+        void getCocktails();
+
+        void getRandom();
+
+
     }
 
 
     interface Presenter {
 
-        void showCocktail();
+        void showCocktail(List<CocktailResponse> cocktailResponse);
 
         void showIngredient();
 

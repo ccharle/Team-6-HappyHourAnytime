@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
-import org.pursuit.team_6_happyhouranytime.models.CocktailListModel;
+import org.pursuit.team_6_happyhouranytime.models.CocktailModel;
 import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.CocktailsContract;
@@ -32,14 +32,13 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements CocktailsContract.View {
     private static final String TAG = "main";
-    private MainPresenter mainPresenter;
+    private CocktailsContract.Presenter presenter = new MainPresenter(this);
+    private CocktailsContract.Model model;
     public static final String DRINK_KEY = "drinks";
     private AlertDialog.Builder dialog;
     private List<Cocktail> drinkList;
-    private CocktailListModel.OnFinishedListener onFinishedListener;
     private CocktailsContract cocktailsContract;
     private Button random_button;
-    private ApiClient apiClient;
     @BindView(R.id.info_tablayout)
     TabLayout infoTabLayout;
     @BindView(R.id.main_container)
@@ -87,26 +86,6 @@ public class MainActivity extends AppCompatActivity implements CocktailsContract
 
     }
 
-    private void getRandomCocktails() {
-
-        apiClient = ApiClient.getInstance();
-        apiClient.getRandom().enqueue(new Callback<CocktailResponse>() {
-            @Override
-            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
-                if (response.body() != null) {
-                    drinkList = new ArrayList<>();
-                    drinkList.addAll(response.body().getDrinks());
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<CocktailResponse> call, Throwable t) {
-                Log.d(TAG, "OnFailure" + t.getMessage());
-
-            }
-        });
-    }
 
     @Override
     public void tabSelection() {

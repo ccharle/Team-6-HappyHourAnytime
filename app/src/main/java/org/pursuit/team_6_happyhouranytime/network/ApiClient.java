@@ -53,7 +53,7 @@ public class ApiClient {
 
     }
 
-    public Call<CocktailResponse> searchCocktails() {
+    public Call<CocktailResponse> getCocktails() {
         return cocktailsAPI.getCocktails();
     }
 

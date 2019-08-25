@@ -6,34 +6,26 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
-import org.pursuit.team_6_happyhouranytime.models.CocktailModel;
-import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
-import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.CocktailsContract;
 import org.pursuit.team_6_happyhouranytime.presenter.MainPresenter;
 import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity implements CocktailsContract.View {
     private static final String TAG = "main";
     private CocktailsContract.Presenter presenter = new MainPresenter(this);
-    private CocktailsContract.Model model;
+    private CocktailsContract.CocktailIntractor cocktailIntractor;
     public static final String DRINK_KEY = "drinks";
     private AlertDialog.Builder dialog;
     private List<Cocktail> drinkList;

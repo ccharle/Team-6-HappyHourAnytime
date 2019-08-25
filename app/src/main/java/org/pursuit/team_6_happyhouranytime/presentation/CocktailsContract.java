@@ -1,6 +1,7 @@
 package org.pursuit.team_6_happyhouranytime.presentation;
 
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 
 import java.util.List;
 
@@ -10,38 +11,27 @@ public interface CocktailsContract {
 
     interface Model {
 
-        interface OnFinishedListener {
+        void getCocktails(List<CocktailResponse> cocktailResponseList);
+    }
 
-            void onFinished(List<Cocktail> cocktailList);
 
-            void onFailure(Throwable t);
+    interface Presenter {
 
-        }
+        void showCocktail();
 
-        void getRandomCocktailsList(OnFinishedListener onFinishedListener);
+        void showIngredient();
 
-        void searchCocktails(OnFinishedListener onFinishedListener);
+        void showInstruction();
+
+        void showError();
+
     }
 
     interface View {
 
-        void showProgress();
+        void tabSelection();
 
-        void hideProgress();
-
-        void setDataToRecyclerView(List<Cocktail> movieArrayList);
-
-        void onResponseFailure(Throwable throwable);
-
-
+        void refreshData();
     }
 
-    interface Presenter {
-
-
-        void onDestroy();
-
-        void requestData();
-    }
 }
-

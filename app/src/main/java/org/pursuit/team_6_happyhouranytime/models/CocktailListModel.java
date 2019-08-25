@@ -5,6 +5,7 @@ import android.util.Log;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.network.CocktailsAPI;
 import org.pursuit.team_6_happyhouranytime.presentation.CocktailsContract;
+import org.pursuit.team_6_happyhouranytime.presenter.MainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,13 @@ public class CocktailListModel implements CocktailsContract.Model {
      * @param onFinishedListener
      */
     private ApiClient apiClient;
+    private MainPresenter mainPresenter = new MainPresenter()
     private final String TAG = "CocktailsListModel";
     private List<Cocktail> cocktails = new ArrayList<>();
 
-    @Override
-    public void getRandomCocktailsList(final OnFinishedListener onFinishedListener) {
 
+    @Override
+    public void getCocktails(List<CocktailResponse> cocktailResponseList) {
         apiClient = ApiClient.getInstance();
         apiClient.getRandom().enqueue(new Callback<CocktailResponse>() {
             @Override
@@ -36,35 +38,14 @@ public class CocktailListModel implements CocktailsContract.Model {
 
                 cocktails.addAll(response.body().getDrinks());
                 Log.d(TAG, "Random Drinks Response" + response.body());
-                onFinishedListener.onFinished(cocktails);
 
             }
 
             @Override
             public void onFailure(Call<CocktailResponse> call, Throwable t) {
-                Log.d(TAG,"onFailure" + t.getMessage());
+                Log.d(TAG, "onFailure" + t.getMessage());
             }
         });
 
-
     }
-
-    @Override
-    public void searchCocktails(OnFinishedListener onFinishedListener) {
-        apiClient.searchCocktails().enqueue(new Callback<CocktailResponse>() {
-            @Override
-            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<CocktailResponse> call, Throwable t) {
-
-            }
-        });
-
-
-    }
-
-
 }

@@ -1,11 +1,13 @@
 package org.pursuit.team_6_happyhouranytime.views;
 
+import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 
 import androidx.fragment.app.Fragment;
@@ -38,6 +40,7 @@ public class RandomDrinksFragment extends Fragment {
 
 
     private CocktailsContract fragCocktailsContract;
+
     @BindView(R.id.cocktail_name_textview)
     TextView cocktailNameTextView;
     TextView instructionsTextView;
@@ -47,11 +50,9 @@ public class RandomDrinksFragment extends Fragment {
     CoordinatorLayout coordinatorLayout;
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
-    @BindView(R.id.info_tablayout)
-    TabLayout infoTabLayout;
-    private List<String> drinkIngredients = new ArrayList<>();
+    private List<String> cockTailIngredients = new ArrayList<>();
     private ApiClient apiClient;
-
+    private OnTabSelected onTabSelected;
     private List<Cocktail> drinkList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -72,15 +73,15 @@ public class RandomDrinksFragment extends Fragment {
         return randomDrinksFragment;
     }
 
-//    @Override
-////    public void onAttach(Context context) {
-////        super.onAttach(context);
-////        if (context instanceof CocktailsContract) {
-////            fragCocktailsContract = (CocktailsContract) context;
-////        } else {
-////            throw new RuntimeException(context.toString() + "Runtime Exception");
-////        }
-////    }
+    @Override
+   public void onAttach(Context context) {
+       super.onAttach(context);
+       if (context instanceof OnTabSelected) {
+           onTabSelected = (OnTabSelected) context;
+       } else {
+           throw new RuntimeException(context.toString() + "Runtime Exception");
+       }
+   }
 
 
     @Override
@@ -97,12 +98,13 @@ public class RandomDrinksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View childView = inflater.inflate(R.layout.random_drinks, container, false);
-        ButterKnife.bind(this,childView);
+        ButterKnife.bind(this, childView);
         viewBehaviours();
         return childView;
 
 
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -138,22 +140,6 @@ public class RandomDrinksFragment extends Fragment {
 
 
     private void viewBehaviours() {
-        infoTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

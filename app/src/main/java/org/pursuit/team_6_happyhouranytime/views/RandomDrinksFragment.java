@@ -1,6 +1,5 @@
 package org.pursuit.team_6_happyhouranytime.views;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +13,13 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
-import org.pursuit.team_6_happyhouranytime.presentation.CocktailsContract;
-import org.pursuit.team_6_happyhouranytime.presenter.MainPresenter;
+import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
+import org.pursuit.team_6_happyhouranytime.presenter.FragmentPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +27,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RandomDrinksFragment extends Fragment implements CocktailsContract.View {
+public class RandomDrinksFragment extends Fragment implements MainContract.View {
+    private MainContract.FragPresenter fragPresenter;
+    private MainContract.CocktailIntractor cocktailIntractor;
 
     private static final String TAG = "random";
-    private CocktailsContract.Presenter presenter = new MainPresenter(this);
 
     @BindView(R.id.cocktail_name_textview)
     TextView cocktailNameTextView;
@@ -63,15 +64,15 @@ public class RandomDrinksFragment extends Fragment implements CocktailsContract.
         return randomDrinksFragment;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnTabSelected) {
-            onTabSelected = (OnTabSelected) context;
-        } else {
-            throw new RuntimeException(context.toString() + "Runtime Exception");
-        }
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnTabSelected) {
+//            onTabSelected = (OnTabSelected) context;
+//        } else {
+//            throw new RuntimeException(context.toString() + "Runtime Exception");
+//        }
+//    }
 
 
     @Override
@@ -88,8 +89,8 @@ public class RandomDrinksFragment extends Fragment implements CocktailsContract.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View childView = inflater.inflate(R.layout.random_drinks, container, false);
+        fragPresenter = new FragmentPresenter(this,cocktailIntractor);
         ButterKnife.bind(this, childView);
-        viewBehaviours();
         return childView;
 
 
@@ -108,7 +109,7 @@ public class RandomDrinksFragment extends Fragment implements CocktailsContract.
 //    private void getRandomCocktails() {
 //
 //        apiClient = ApiClient.getInstance();
-//        apiClient.getRandomResponse().enqueue(new Callback<CocktailResponse>() {
+//        apiClient.getRandomCocktailList().enqueue(new Callback<CocktailResponse>() {
 //            @Override
 //            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
 //                if (response.body() != null) {
@@ -129,29 +130,26 @@ public class RandomDrinksFragment extends Fragment implements CocktailsContract.
 //    }
 
 
-    private void viewBehaviours() {
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getRandomCocktails();
-            }
-        });
+
+    @Override
+    public void displayCocktailName(String cocktailName) {
+        cocktailNameTextView.setText(cocktailName);
     }
 
     @Override
-    public void displayCocktails() {
+    public void displayCocktailImage(String imgUrl) {
 
-    }
-
-    @Override
-    public void tabSelection() {
+        Picasso.get().load(imgUrl).into(cocktailImageView);
 
     }
 
     @Override
-    public void refreshData() {
+    public void onResponseFailure(Throwable throwable) {
+        fragPresenter.showError();
 
     }
+
+
 }
 
 

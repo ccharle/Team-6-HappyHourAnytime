@@ -1,12 +1,12 @@
 package org.pursuit.team_6_happyhouranytime.views;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,10 +18,8 @@ import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
-import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
-import org.pursuit.team_6_happyhouranytime.presenter.ActivityPresenter;
 import org.pursuit.team_6_happyhouranytime.presenter.FragmentPresenter;
 import org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor;
 
@@ -30,9 +28,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RandomDrinksFragment extends Fragment implements MainContract.View {
     private MainContract.FragPresenter fragPresenter;
@@ -49,8 +44,6 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
     CoordinatorLayout coordinatorLayout;
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
-    private List<String> cockTailIngredients = new ArrayList<>();
-    private ApiClient apiClient;
     private List<Cocktail> drinkList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -71,17 +64,6 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
         return randomDrinksFragment;
     }
 
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnTabSelected) {
-//            onTabSelected = (OnTabSelected) context;
-//        } else {
-//            throw new RuntimeException(context.toString() + "Runtime Exception");
-//        }
-//    }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,8 +82,8 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
         View childView = inflater.inflate(R.layout.random_drinks, container, false);
         fragPresenter = new FragmentPresenter(this, networkInteractor);
         ButterKnife.bind(this, childView);
+        viewBehaviour();
         return childView;
-
 
     }
 
@@ -111,33 +93,13 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
         super.onViewCreated(view, savedInstanceState);
 
 
-        //   getRandomCocktails();
-
     }
 
-    private void getRandomCocktails() {
 
-        apiClient = ApiClient.getInstance();
-        apiClient.getRandom().enqueue(new Callback<CocktailResponse>() {
-            @Override
-            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
-                if (response.body() != null) {
-                    drinkList = new ArrayList<>();
-                    drinkList.addAll(response.body().getDrinks());
-                    cocktailNameTextView.setText(drinkList.get(0).getStrDrink());
-                    Picasso.get().load(drinkList.get(0).getStrDrinkThumb()).into(cocktailImageView);
-                }
+    @Override
+    public void refreshData() {
 
-            }
-
-            @Override
-            public void onFailure(Call<CocktailResponse> call, Throwable t) {
-                Log.d(TAG, "OnFailure" + t.getMessage());
-
-            }
-        });
     }
-
 
     @Override
     public void displayCocktailName(String cocktailName) {
@@ -162,6 +124,15 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
         networkInteractor = new NetworkInteractor(apiClient, getActivity());
         FragmentPresenter fragmentPresenter = new FragmentPresenter(this, networkInteractor);
         fragmentPresenter.requestData();
+    }
+
+
+    public void viewBehaviour() {
+        floatingActionButton.setOnClickListener(v -> {
+            networkRequest();
+            Toast.makeText(RandomDrinksFragment.this.getActivity(), "Toasty", Toast.LENGTH_SHORT).show();
+
+        });
     }
 
 }

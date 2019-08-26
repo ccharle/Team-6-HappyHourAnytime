@@ -31,6 +31,7 @@ public interface MainContract {
     interface FragPresenter {
 
 
+
         void requestRandomCocktail(NetworkInteractor.OnFinishedListener onFinishedListener);
 
 
@@ -53,11 +54,11 @@ public interface MainContract {
 
     interface View {
 
+        void refreshData();
 
         void displayCocktailName(String cocktailName);
 
         void displayCocktailImage(String imgUrl);
-
 
         void onResponseFailure(Throwable throwable);
     }

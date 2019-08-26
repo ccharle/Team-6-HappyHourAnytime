@@ -17,16 +17,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 //This class will have actual business logic for fetching data from a server.
-// This class will implement CocktailIntractor Interface from Contract Interface
+// This class will implement NetworkInteractor Interface from Contract Interface
 
-public class MainCocktailIntractor implements MainContract.CocktailIntractor {
+public class NetworkInteractor implements MainContract.NetworkInteractor {
     private Context context;
     private ApiClient apiClient;
     private final String TAG = "CocktailsListModel";
     private List<Cocktail> cocktailList = new ArrayList<>();
     private List<Cocktail> randomCocktailList = new ArrayList<>();
 
-    public MainCocktailIntractor(ApiClient apiClient, Context context) {
+    public NetworkInteractor(ApiClient apiClient, Context context) {
         this.apiClient = apiClient;
         this.context = context;
     }

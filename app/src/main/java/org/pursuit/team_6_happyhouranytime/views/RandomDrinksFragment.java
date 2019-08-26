@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 
 public class RandomDrinksFragment extends Fragment implements MainContract.View {
     private MainContract.FragPresenter fragPresenter;
-    private MainContract.CocktailIntractor cocktailIntractor;
+    private MainContract.NetworkInteractor networkInteractor;
 
     private static final String TAG = "random";
 
@@ -89,7 +89,7 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View childView = inflater.inflate(R.layout.random_drinks, container, false);
-        fragPresenter = new FragmentPresenter(this,cocktailIntractor);
+        fragPresenter = new FragmentPresenter(this, networkInteractor);
         ButterKnife.bind(this, childView);
         return childView;
 

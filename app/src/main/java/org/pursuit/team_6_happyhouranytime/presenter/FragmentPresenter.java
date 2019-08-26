@@ -1,7 +1,5 @@
 package org.pursuit.team_6_happyhouranytime.presenter;
 
-import android.widget.Toast;
-
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 
@@ -9,23 +7,23 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentPresenter implements MainContract.FragPresenter, MainContract.CocktailIntractor.OnFinishedListener {
-    private MainContract.CocktailIntractor cocktailIntractor;
+public class FragmentPresenter implements MainContract.FragPresenter, MainContract.NetworkInteractor.OnFinishedListener {
+    private MainContract.NetworkInteractor networkInteractor;
     private MainContract.View view;
     private List<Cocktail> cocktails = new ArrayList<>();
     private WeakReference<MainContract.View> viewWeakReference;
 
 
-    public FragmentPresenter(MainContract.View cocktailsView, MainContract.CocktailIntractor cocktailIntractor) {
+    public FragmentPresenter(MainContract.View cocktailsView, MainContract.NetworkInteractor networkInteractor) {
 
         this.view = cocktailsView;
-        this.cocktailIntractor = cocktailIntractor;
+        this.networkInteractor = networkInteractor;
 
     }
 
 
     @Override
-    public void requestRandomCocktail(MainContract.CocktailIntractor.OnFinishedListener onFinishedListener) {
+    public void requestRandomCocktail(MainContract.NetworkInteractor.OnFinishedListener onFinishedListener) {
 
     }
 

@@ -38,12 +38,12 @@ public interface MainContract {
 
         void showError();
 
+        void requestData();
+
     }
 
 
     interface ActivityPresenter {
-
-        void requestData();
 
 
         void onDestroy();

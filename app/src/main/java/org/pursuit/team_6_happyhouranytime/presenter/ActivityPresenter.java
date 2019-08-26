@@ -14,10 +14,6 @@ public class ActivityPresenter implements MainContract.ActivityPresenter, MainCo
         this.networkInteractor = networkInteractor;
     }
 
-    @Override
-    public void requestData() {
-        networkInteractor.getRandomCocktailList(this);
-    }
 
     @Override
     public void onDestroy() {

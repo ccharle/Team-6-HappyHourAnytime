@@ -40,6 +40,11 @@ public class FragmentPresenter implements MainContract.FragPresenter, MainContra
     }
 
     @Override
+    public void requestData() {
+        networkInteractor.getRandomCocktailList(this);
+    }
+
+    @Override
     public void onFinished(List<Cocktail> cocktailResponse) {
         if (view != null) {
             view.displayCocktailImage(cocktailResponse.get(0).getStrDrinkThumb());

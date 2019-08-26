@@ -24,7 +24,7 @@ public class NetworkInteractor implements MainContract.NetworkInteractor {
     private ApiClient apiClient;
     private final String TAG = "CocktailsListModel";
     private List<Cocktail> cocktailList = new ArrayList<>();
-    private List<Cocktail> randomCocktailList = new ArrayList<>();
+    private List<Cocktail> randomCocktailList;
 
     public NetworkInteractor(ApiClient apiClient, Context context) {
         this.apiClient = apiClient;
@@ -61,6 +61,7 @@ public class NetworkInteractor implements MainContract.NetworkInteractor {
             @Override
             public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
                 if (response.body() != null) {
+                    randomCocktailList = new ArrayList<>();
                     Toast.makeText(context,"sweet",Toast.LENGTH_LONG).show();
                     randomCocktailList.addAll(response.body().getDrinks()) ;
                    onFinishedListener.onFinished(randomCocktailList);

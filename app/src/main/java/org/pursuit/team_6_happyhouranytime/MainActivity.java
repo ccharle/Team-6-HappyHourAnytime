@@ -43,10 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        final ApiClient apiClient = ApiClient.getInstance();
-        networkInteractor = new NetworkInteractor(apiClient, this);
-        activityPresenter = new ActivityPresenter(this, networkInteractor);
-        activityPresenter.requestData();
+
         setViews();
         viewBehaviours();
 

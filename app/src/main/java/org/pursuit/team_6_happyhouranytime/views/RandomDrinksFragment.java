@@ -1,6 +1,7 @@
 package org.pursuit.team_6_happyhouranytime.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,19 +18,25 @@ import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
+import org.pursuit.team_6_happyhouranytime.presenter.ActivityPresenter;
 import org.pursuit.team_6_happyhouranytime.presenter.FragmentPresenter;
+import org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RandomDrinksFragment extends Fragment implements MainContract.View {
     private MainContract.FragPresenter fragPresenter;
-    private MainContract.NetworkInteractor networkInteractor;
+    private NetworkInteractor networkInteractor;
 
     private static final String TAG = "random";
 
@@ -83,6 +90,8 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        networkRequest();
     }
 
     @Override
@@ -102,33 +111,32 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
         super.onViewCreated(view, savedInstanceState);
 
 
-        //    getRandomCocktails();
+        //   getRandomCocktails();
 
     }
 
-//    private void getRandomCocktails() {
-//
-//        apiClient = ApiClient.getInstance();
-//        apiClient.getRandomCocktailList().enqueue(new Callback<CocktailResponse>() {
-//            @Override
-//            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
-//                if (response.body() != null) {
-//                    drinkList = new ArrayList<>();
-//                    drinkList.addAll(response.body().getCocktails());
-//                    cocktailNameTextView.setText(drinkList.get(0).getStrDrink());
-//                    Picasso.get().load(drinkList.get(0).getStrDrinkThumb()).into(cocktailImageView);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<CocktailResponse> call, Throwable t) {
-//                Log.d(TAG, "OnFailure" + t.getMessage());
-//
-//            }
-//        });
-//    }
+    private void getRandomCocktails() {
 
+        apiClient = ApiClient.getInstance();
+        apiClient.getRandom().enqueue(new Callback<CocktailResponse>() {
+            @Override
+            public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
+                if (response.body() != null) {
+                    drinkList = new ArrayList<>();
+                    drinkList.addAll(response.body().getDrinks());
+                    cocktailNameTextView.setText(drinkList.get(0).getStrDrink());
+                    Picasso.get().load(drinkList.get(0).getStrDrinkThumb()).into(cocktailImageView);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<CocktailResponse> call, Throwable t) {
+                Log.d(TAG, "OnFailure" + t.getMessage());
+
+            }
+        });
+    }
 
 
     @Override
@@ -149,6 +157,12 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
 
     }
 
+    public void networkRequest() {
+        final ApiClient apiClient = ApiClient.getInstance();
+        networkInteractor = new NetworkInteractor(apiClient, getActivity());
+        FragmentPresenter fragmentPresenter = new FragmentPresenter(this, networkInteractor);
+        fragmentPresenter.requestData();
+    }
 
 }
 

@@ -61,8 +61,8 @@ public class NetworkInteractor implements MainContract.NetworkInteractor {
             @Override
             public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
                 if (response.body() != null) {
-                    Toast.makeText(context,"sweet",Toast.LENGTH_LONG);
-                    randomCocktailList = response.body().getCocktails();
+                    Toast.makeText(context,"sweet",Toast.LENGTH_LONG).show();
+                    randomCocktailList.addAll(response.body().getDrinks()) ;
                    onFinishedListener.onFinished(randomCocktailList);
                     Log.d(TAG, "Random Drinks Response" + response.body());
 
@@ -73,7 +73,7 @@ public class NetworkInteractor implements MainContract.NetworkInteractor {
             @Override
             public void onFailure(Call<CocktailResponse> call, Throwable t) {
                 onFinishedListener.onFailure(t);
-                Toast.makeText(context,"Fail",Toast.LENGTH_LONG);
+                Toast.makeText(context,"Fail",Toast.LENGTH_LONG).show();
                 Log.d(TAG, "onFailure" + t.getMessage());
             }
         });

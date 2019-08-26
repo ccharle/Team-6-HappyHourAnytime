@@ -3,17 +3,19 @@ package org.pursuit.team_6_happyhouranytime.models;
 import java.util.List;
 
 public class CocktailResponse {
-    private List<Cocktail> cocktailList;
+    private List<Cocktail> drinks;
     private List<String> ingredientsList;
 
-
-
-    public CocktailResponse(List<Cocktail> cocktailList) {
-        this.cocktailList = cocktailList;
+    public CocktailResponse(List<Cocktail> drinks) {
+        this.drinks = drinks;
     }
 
-    public List<Cocktail> getCocktails() {
-        return cocktailList;
+    public List<Cocktail> getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(List<Cocktail> drinks) {
+        this.drinks = drinks;
     }
 //
 //

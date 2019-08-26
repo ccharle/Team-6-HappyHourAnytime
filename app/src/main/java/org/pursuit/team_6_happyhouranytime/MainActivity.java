@@ -15,6 +15,7 @@ import org.pursuit.team_6_happyhouranytime.models.Cocktail;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 import org.pursuit.team_6_happyhouranytime.presenter.ActivityPresenter;
+import org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor;
 import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
 
 import java.util.List;
@@ -26,8 +27,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainContract.View {
     private static final String TAG = "main";
     private MainContract.ActivityPresenter activityPresenter;
-    private MainContract.NetworkInteractor networkInteractor;
-    private org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor networkInteractor;
+    private MainContract.NetworkInteractor networkInteractorContract;
+    private NetworkInteractor networkInteractor;
     public static final String DRINK_KEY = "drinks";
     private AlertDialog.Builder dialog;
     private List<Cocktail> drinkList;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         final ApiClient apiClient = ApiClient.getInstance();
-        networkInteractor = new org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor(apiClient,this);
+        networkInteractor = new NetworkInteractor(apiClient, this);
         activityPresenter = new ActivityPresenter(this, networkInteractor);
         activityPresenter.requestData();
         setViews();

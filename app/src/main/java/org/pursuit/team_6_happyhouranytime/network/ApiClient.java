@@ -1,6 +1,5 @@
 package org.pursuit.team_6_happyhouranytime.network;
 
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
 import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
 
 import okhttp3.OkHttpClient;
@@ -50,9 +49,11 @@ public class ApiClient {
 
     }
 
-    public Call<CocktailResponse> searchCocktails() {
+    public Call<CocktailResponse> getCocktails() {
         return cocktailsAPI.getCocktails();
     }
+
+
 }
 
 

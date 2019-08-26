@@ -119,7 +119,7 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
 
     }
 
-    public void networkRequest() {
+    private void networkRequest() {
         final ApiClient apiClient = ApiClient.getInstance();
         networkInteractor = new NetworkInteractor(apiClient, getActivity());
         FragmentPresenter fragmentPresenter = new FragmentPresenter(this, networkInteractor);
@@ -127,7 +127,7 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
     }
 
 
-    public void viewBehaviour() {
+    private void viewBehaviour() {
         floatingActionButton.setOnClickListener(v -> {
             networkRequest();
             Toast.makeText(RandomDrinksFragment.this.getActivity(), "Toasty", Toast.LENGTH_SHORT).show();

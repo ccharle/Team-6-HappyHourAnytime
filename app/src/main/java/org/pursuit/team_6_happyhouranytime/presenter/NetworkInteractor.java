@@ -17,16 +17,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 //This class will have actual business logic for fetching data from a server.
-// This class will implement CocktailIntractor Interface from Contract Interface
+// This class will implement NetworkInteractor Interface from Contract Interface
 
-public class MainCocktailIntractor implements MainContract.CocktailIntractor {
+public class NetworkInteractor implements MainContract.NetworkInteractor {
     private Context context;
     private ApiClient apiClient;
     private final String TAG = "CocktailsListModel";
     private List<Cocktail> cocktailList = new ArrayList<>();
-    private List<Cocktail> randomCocktailList = new ArrayList<>();
+    private List<Cocktail> randomCocktailList;
 
-    public MainCocktailIntractor(ApiClient apiClient, Context context) {
+    public NetworkInteractor(ApiClient apiClient, Context context) {
         this.apiClient = apiClient;
         this.context = context;
     }
@@ -61,8 +61,9 @@ public class MainCocktailIntractor implements MainContract.CocktailIntractor {
             @Override
             public void onResponse(Call<CocktailResponse> call, Response<CocktailResponse> response) {
                 if (response.body() != null) {
-                    Toast.makeText(context,"sweet",Toast.LENGTH_LONG);
-                    randomCocktailList = response.body().getCocktails();
+                    randomCocktailList = new ArrayList<>();
+                    Toast.makeText(context,"sweet",Toast.LENGTH_LONG).show();
+                    randomCocktailList.addAll(response.body().getDrinks()) ;
                    onFinishedListener.onFinished(randomCocktailList);
                     Log.d(TAG, "Random Drinks Response" + response.body());
 
@@ -73,7 +74,7 @@ public class MainCocktailIntractor implements MainContract.CocktailIntractor {
             @Override
             public void onFailure(Call<CocktailResponse> call, Throwable t) {
                 onFinishedListener.onFailure(t);
-                Toast.makeText(context,"Fail",Toast.LENGTH_LONG);
+                Toast.makeText(context,"Fail",Toast.LENGTH_LONG).show();
                 Log.d(TAG, "onFailure" + t.getMessage());
             }
         });

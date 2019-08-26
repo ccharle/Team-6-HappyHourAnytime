@@ -2,23 +2,15 @@ package org.pursuit.team_6_happyhouranytime;
 
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.tabs.TabLayout;
 
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
-import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
-import org.pursuit.team_6_happyhouranytime.presenter.ActivityPresenter;
-import org.pursuit.team_6_happyhouranytime.presenter.MainCocktailIntractor;
 import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,12 +18,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
     private static final String TAG = "main";
-    private MainContract.ActivityPresenter activityPresenter;
-    private MainContract.CocktailIntractor cocktailIntractor;
-    private MainCocktailIntractor mainCocktailIntractor;
-    public static final String DRINK_KEY = "drinks";
-    private AlertDialog.Builder dialog;
-    private List<Cocktail> drinkList;
     private Button random_button;
     @BindView(R.id.info_tablayout)
     TabLayout infoTabLayout;
@@ -43,10 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        final ApiClient apiClient = ApiClient.getInstance();
-        mainCocktailIntractor = new MainCocktailIntractor(apiClient,this);
-        activityPresenter = new ActivityPresenter(this,mainCocktailIntractor);
-        activityPresenter.requestData();
+
         setViews();
         viewBehaviours();
 
@@ -84,6 +67,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     }
 
+
+    @Override
+    public void refreshData() {
+
+    }
 
     @Override
     public void displayCocktailName(String cocktailName) {

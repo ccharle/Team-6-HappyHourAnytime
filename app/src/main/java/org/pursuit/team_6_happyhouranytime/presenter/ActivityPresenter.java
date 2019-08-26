@@ -5,19 +5,15 @@ import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 
 import java.util.List;
 
-public class ActivityPresenter implements MainContract.ActivityPresenter, MainContract.CocktailIntractor.OnFinishedListener {
+public class ActivityPresenter implements MainContract.ActivityPresenter, MainContract.NetworkInteractor.OnFinishedListener {
     private MainContract.View view;
-    private MainCocktailIntractor mainCocktailIntractor;
+    private NetworkInteractor networkInteractor;
 
-    public ActivityPresenter(MainContract.View view, MainCocktailIntractor mainCocktailIntractor) {
+    public ActivityPresenter(MainContract.View view, NetworkInteractor networkInteractor) {
         this.view = view;
-        this.mainCocktailIntractor = mainCocktailIntractor;
+        this.networkInteractor = networkInteractor;
     }
 
-    @Override
-    public void requestData() {
-        mainCocktailIntractor.getRandomCocktailList(this);
-    }
 
     @Override
     public void onDestroy() {

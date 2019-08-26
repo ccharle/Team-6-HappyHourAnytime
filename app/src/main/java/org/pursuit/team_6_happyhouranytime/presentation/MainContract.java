@@ -6,12 +6,12 @@ import java.util.List;
 
 /**
  * This interface contains all the methods that our View,
- * CocktailIntractor and FragPresenter going to implement
+ * NetworkInteractor and FragPresenter going to implement
  **/
 
 public interface MainContract {
 
-    interface CocktailIntractor {
+    interface NetworkInteractor {
 
 
         interface OnFinishedListener {
@@ -31,19 +31,20 @@ public interface MainContract {
     interface FragPresenter {
 
 
-        void requestRandomCocktail(CocktailIntractor.OnFinishedListener onFinishedListener);
+
+        void requestRandomCocktail(NetworkInteractor.OnFinishedListener onFinishedListener);
 
 
         void requestByCocktail();
 
         void showError();
 
+        void requestData();
+
     }
 
 
     interface ActivityPresenter {
-
-        void requestData();
 
 
         void onDestroy();
@@ -53,11 +54,11 @@ public interface MainContract {
 
     interface View {
 
+        void refreshData();
 
         void displayCocktailName(String cocktailName);
 
         void displayCocktailImage(String imgUrl);
-
 
         void onResponseFailure(Throwable throwable);
     }

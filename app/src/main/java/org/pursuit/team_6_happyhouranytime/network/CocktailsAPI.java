@@ -1,6 +1,6 @@
 package org.pursuit.team_6_happyhouranytime.network;
 
-import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
+import org.pursuit.team_6_happyhouranytime.model.CocktailResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,6 +1,6 @@
 package org.pursuit.team_6_happyhouranytime.presenter;
 
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.model.Response;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class ActivityPresenter implements MainContract.ActivityPresenter, MainCo
     }
 
     @Override
-    public void onFinished(List<Cocktail> cocktailResponse) {
+    public void onFinished(List<Response> cocktailResponse) {
 
 
     }

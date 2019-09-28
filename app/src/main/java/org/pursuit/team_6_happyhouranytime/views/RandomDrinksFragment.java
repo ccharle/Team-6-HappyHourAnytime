@@ -17,13 +17,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.R;
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.model.Response;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 import org.pursuit.team_6_happyhouranytime.presenter.FragmentPresenter;
 import org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,7 +43,7 @@ public class RandomDrinksFragment extends Fragment implements MainContract.View 
     CoordinatorLayout coordinatorLayout;
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
-    private List<Cocktail> drinkList;
+    private List<Response> drinkList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 

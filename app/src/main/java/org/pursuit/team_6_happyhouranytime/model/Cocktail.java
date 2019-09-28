@@ -1,10 +1,8 @@
-package org.pursuit.team_6_happyhouranytime.models;
+package org.pursuit.team_6_happyhouranytime.model;
 
 import android.os.Parcel;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Cocktail implements Serializable {
     private String idDrink;

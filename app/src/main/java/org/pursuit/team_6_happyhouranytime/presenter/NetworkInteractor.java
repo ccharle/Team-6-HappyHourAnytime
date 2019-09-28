@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
-import org.pursuit.team_6_happyhouranytime.models.CocktailResponse;
+import org.pursuit.team_6_happyhouranytime.model.Response;
+import org.pursuit.team_6_happyhouranytime.model.CocktailResponse;
 import org.pursuit.team_6_happyhouranytime.network.ApiClient;
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 
@@ -14,7 +14,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 //This class will have actual business logic for fetching data from a server.
 // This class will implement NetworkInteractor Interface from Contract Interface
@@ -23,8 +22,8 @@ public class NetworkInteractor implements MainContract.NetworkInteractor {
     private Context context;
     private ApiClient apiClient;
     private final String TAG = "CocktailsListModel";
-    private List<Cocktail> cocktailList = new ArrayList<>();
-    private List<Cocktail> randomCocktailList;
+    private List<Response> cocktailList = new ArrayList<>();
+    private List<Response> randomCocktailList;
 
     public NetworkInteractor(ApiClient apiClient, Context context) {
         this.apiClient = apiClient;

@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import org.pursuit.team_6_happyhouranytime.R;
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.model.Response;
 
 import java.util.List;
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
 
-    private List<Cocktail> cocktailList;
+    private List<Response> cocktailList;
 
-    public DrinkAdapter(List<Cocktail> cocktailList) {
+    public DrinkAdapter(List<Response> cocktailList) {
         this.cocktailList = cocktailList;
     }
 
@@ -36,7 +36,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkViewHolder> {
         return cocktailList.size();
     }
 
-    public void setData(List<Cocktail> newDrinkList) {
+    public void setData(List<Response> newDrinkList) {
         this.cocktailList = newDrinkList;
         notifyDataSetChanged();
     }

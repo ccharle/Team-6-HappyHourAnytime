@@ -1,6 +1,6 @@
 package org.pursuit.team_6_happyhouranytime.presentation;
 
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.model.Response;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface MainContract {
 
         interface OnFinishedListener {
 
-            void onFinished(List<Cocktail> cocktailResponse);
+            void onFinished(List<Response> cocktailResponse);
 
             void onFailure(Throwable t);
         }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.pursuit.team_6_happyhouranytime.R;
-import org.pursuit.team_6_happyhouranytime.models.Cocktail;
+import org.pursuit.team_6_happyhouranytime.model.Response;
 
 class DrinkViewHolder extends RecyclerView.ViewHolder {
     private final String ID_KEY = "identification";
@@ -18,7 +18,7 @@ class DrinkViewHolder extends RecyclerView.ViewHolder {
         drinkNameView = itemView.findViewById(R.id.drink_name_view);
     }
 
-    public void onBind(final Cocktail drink) {
+    public void onBind(final Response drink) {
         drinkNameView.setText(drink.getStrDrink());
     }
 

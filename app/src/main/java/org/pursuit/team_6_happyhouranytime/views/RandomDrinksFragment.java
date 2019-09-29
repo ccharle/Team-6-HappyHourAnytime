@@ -18,9 +18,6 @@ import com.squareup.picasso.Picasso;
 
 import org.pursuit.team_6_happyhouranytime.R;
 import org.pursuit.team_6_happyhouranytime.model.Response;
-import org.pursuit.team_6_happyhouranytime.network.ApiClient;
-import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
-import org.pursuit.team_6_happyhouranytime.presenter.FragmentPresenter;
 import org.pursuit.team_6_happyhouranytime.presenter.NetworkInteractor;
 
 import java.util.List;

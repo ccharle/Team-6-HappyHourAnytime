@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.tabs.TabLayout;
 
-import org.pursuit.team_6_happyhouranytime.presentation.MainContract;
 import org.pursuit.team_6_happyhouranytime.views.RandomDrinksFragment;
 
 import butterknife.BindView;

@@ -6,8 +6,6 @@ interface MainContract {
 
     interface View {
 
-
-        fun getRandom()
         fun showDrink(imgUri: String?) {
 
 
@@ -27,7 +25,5 @@ interface MainContract {
 
     }
 
-    interface DrinkModel {
-
-    }
+    interface DrinkModel
 }

@@ -15,12 +15,6 @@ import org.pursuit.team_6_happyhouranytime.presenter.Presenter
 
 class RandomFragment : Fragment(), MainContract.View {
 
-
-    override fun getRandom() {
-
-    }
-
-
     lateinit var instanceOfPresenter: Presenter
 
 
@@ -42,7 +36,6 @@ class RandomFragment : Fragment(), MainContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-
         return inflater.inflate(R.layout.random_drinks, container, false)
 
 
@@ -50,6 +43,8 @@ class RandomFragment : Fragment(), MainContract.View {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        bttn_fab.setOnClickListener { instanceOfPresenter.getRandomDrinks() }
+
     }
 
     override fun showDrink(imgUri: String?) {

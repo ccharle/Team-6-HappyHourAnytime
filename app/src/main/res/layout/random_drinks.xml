@@ -15,7 +15,7 @@
         tools:context=".RandomDrinkSelected">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/bttn_fab"
             android:layout_width="wrap_content"
             android:layout_height="62dp"
             android:layout_margin="16dp"

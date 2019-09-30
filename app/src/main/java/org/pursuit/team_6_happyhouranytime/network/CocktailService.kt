@@ -13,8 +13,9 @@ interface CocktailService {
     fun getRandomRandom(): Call<Model.Response>
 
     companion object {
-        private fun create(): CocktailService {
-            val BASE_URL: String = "https://www.thecocktaildb.com/"
+        private const val BASE_URL: String = "https://www.thecocktaildb.com/"
+
+        fun create(): CocktailService {
 
             val builder: OkHttpClient.Builder = OkHttpClient.Builder()
             val client: OkHttpClient = builder.build()

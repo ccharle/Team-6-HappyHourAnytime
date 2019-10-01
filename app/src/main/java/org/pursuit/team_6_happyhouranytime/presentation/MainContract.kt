@@ -5,7 +5,7 @@ import org.pursuit.team_6_happyhouranytime.model.Model
 interface MainContract {
 
     interface View {
-
+        fun getList(drinkList: List<Model.Drinks>)
         fun showDrink(imgUri: String?) {
 
 

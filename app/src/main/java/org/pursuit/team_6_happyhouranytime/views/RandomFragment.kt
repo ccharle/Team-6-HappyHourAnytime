@@ -1,5 +1,6 @@
 package org.pursuit.team_6_happyhouranytime.views
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,22 @@ import org.pursuit.team_6_happyhouranytime.presentation.MainContract
 import org.pursuit.team_6_happyhouranytime.presenter.Presenter
 
 class RandomFragment : Fragment(), MainContract.View {
+    var randomDrinkList: List<Model.Drinks>? = null
+    internal var callback: RandomFragmentListener? = null
+
+    override fun getList(drinkList: List<Model.Drinks>) {
+        randomDrinkList = drinkList
+        callback?.getListResponse(drinkList)
+
+
+    }
+
+    interface RandomFragmentListener {
+
+        fun getListResponse(infoList: List<Model.Drinks>)
+
+
+    }
 
     lateinit var instanceOfPresenter: Presenter
 
@@ -41,6 +58,14 @@ class RandomFragment : Fragment(), MainContract.View {
 
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is RandomFragmentListener) {
+            callback = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement RandomFragmentListener")
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         bttn_fab.setOnClickListener { instanceOfPresenter.getRandomDrinks() }

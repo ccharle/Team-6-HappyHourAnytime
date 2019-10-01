@@ -13,6 +13,7 @@ private const val TAG = "Response"
 class Presenter(private val cocktailService: CocktailService, private val viewRef: MainContract.View) : MainContract.Presenter, MainContract.Presenter.OnNetworkCallListener {
     override fun onNetworkCallFinished(drinkList: List<Model.Drinks>) {
         viewRef.showDrink(drinkList[0].strDrinkThumb)
+        viewRef.getList(drinkList)
 
     }
 
@@ -38,6 +39,7 @@ class Presenter(private val cocktailService: CocktailService, private val viewRe
             override fun onResponse(call: Call<Model.Response>, response: Response<Model.Response>) {
                 Log.d(TAG, "success")
                 onNetworkCallFinished(response.body()!!.drinks)
+
 
             }
 

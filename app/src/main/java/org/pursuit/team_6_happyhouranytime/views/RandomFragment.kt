@@ -15,19 +15,17 @@ import org.pursuit.team_6_happyhouranytime.presentation.MainContract
 import org.pursuit.team_6_happyhouranytime.presenter.Presenter
 
 class RandomFragment : Fragment(), MainContract.View {
-    var randomDrinkList: List<Model.Drinks>? = null
     internal var callback: RandomFragmentListener? = null
 
     override fun getList(drinkList: List<Model.Drinks>) {
-        randomDrinkList = drinkList
-        callback?.getListResponse(drinkList)
+        callback?.getListResponse(drinkList[0].strDrinkThumb!!)
 
 
     }
 
     interface RandomFragmentListener {
 
-        fun getListResponse(infoList: List<Model.Drinks>)
+        fun getListResponse(imgUri: String)
 
 
     }
@@ -61,7 +59,7 @@ class RandomFragment : Fragment(), MainContract.View {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is RandomFragmentListener) {
-            callback = context
+            this.callback = context
         } else {
             throw RuntimeException(context.toString() + " must implement RandomFragmentListener")
         }

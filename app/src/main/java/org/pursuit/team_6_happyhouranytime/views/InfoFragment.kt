@@ -11,13 +11,23 @@ import kotlinx.android.synthetic.main.cocktail_info_layout.*
 import org.pursuit.team_6_happyhouranytime.R
 import org.pursuit.team_6_happyhouranytime.model.Model
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract
+import org.pursuit.team_6_happyhouranytime.presenter.Presenter
 
 
 private const val ARG_PARAM1 = "param1"
 
 
-class InfoFragment : Fragment() {
+class InfoFragment : Fragment(), MainContract.View {
+    override fun getList(drinkList: List<Model.Drinks>) {
 
+
+    }
+
+    override fun showDrink(imgUri: String?) {
+        Picasso.get().load(imgUri).into(imgvw_randominfo)
+
+
+    }
 
 
     private var param1: String? = null
@@ -39,7 +49,6 @@ class InfoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Picasso.get().load(param1).into(imgvw_randominfo)
 
 
     }

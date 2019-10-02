@@ -14,7 +14,7 @@ import org.pursuit.team_6_happyhouranytime.network.CocktailService
 import org.pursuit.team_6_happyhouranytime.presentation.MainContract
 import org.pursuit.team_6_happyhouranytime.presenter.Presenter
 
-class RandomFragment : Fragment(), MainContract.View {
+class RandomFragment(private val cocktailService: CocktailService) : Fragment(), MainContract.View {
     internal var callback: RandomFragmentListener? = null
 
     override fun getList(drinkList: List<Model.Drinks>) {
@@ -33,11 +33,11 @@ class RandomFragment : Fragment(), MainContract.View {
     lateinit var instanceOfPresenter: Presenter
 
 
-    private val cocktailService by lazy {
-        CocktailService.create()
-
-
-    }
+//    private val cocktailService by lazy {
+//        CocktailService.create()
+//
+//
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

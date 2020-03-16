@@ -11,4 +11,5 @@
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
     <string name="cocktail">Cocktail</string>
+    <string name="base_url">https://www.thecocktaildb.com/</string>
 </resources>

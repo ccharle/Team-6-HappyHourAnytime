@@ -12,5 +12,5 @@ import javax.inject.Inject
 interface APIService {
     @Provides
     @GET("api/json/v1/1/random.php")
-    fun fetchRandomCocktail(): Call<CocktailModel>
+    suspend  fun fetchRandomCocktail(): Call<CocktailModel>
 }

@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateViewModelFactory
-import kotlinx.android.synthetic.main.random_cocktail_layout.*
 import org.pursuit.team_6_happyhouranytime.R
-import org.pursuit.team_6_happyhouranytime.view.viewmodel.CocktailViewModel
+import org.pursuit.team_6_happyhouranytime.view.viewmodel.MainViewModel
 
 class CocktailsByRandomFragment : Fragment() {
-    private val cocktailViewModel: CocktailViewModel by viewModels(factoryProducer = { SavedStateViewModelFactory(requireActivity().application,this) })
+    private val mainViewModel: MainViewModel by viewModels(factoryProducer = { SavedStateViewModelFactory(requireActivity().application,this) })
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.random_cocktail_layout, container, false)
@@ -21,6 +19,5 @@ class CocktailsByRandomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cocktailViewModel.cocktailModel.observe(viewLifecycleOwner)
     }
 }

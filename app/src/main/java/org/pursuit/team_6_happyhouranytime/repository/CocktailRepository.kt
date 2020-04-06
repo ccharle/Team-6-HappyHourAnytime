@@ -6,5 +6,5 @@ import org.pursuit.team_6_happyhouranytime.network.webutils.NetworkCall
 import org.pursuit.team_6_happyhouranytime.network.webutils.NetworkClient
 
 object CocktailRepository {
-    suspend fun getRandomCocktail() = NetworkCall<CocktailModel>().makeCall(NetworkClient.apiService.fetchRandomCocktail())
+     fun getRandomCocktail() = NetworkCall<CocktailModel>().makeCall(NetworkClient.apiService.fetchRandomCocktail())
 }

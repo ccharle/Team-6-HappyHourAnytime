@@ -10,7 +10,6 @@ import retrofit2.http.GET
 import javax.inject.Inject
 
 interface APIService {
-    @Provides
     @GET("api/json/v1/1/random.php")
-    suspend  fun fetchRandomCocktail(): Call<CocktailModel>
+    fun fetchRandomCocktail(): Call<CocktailModel>
 }

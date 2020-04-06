@@ -16,7 +16,5 @@ class Resource<T> private constructor(val status: Status, val data: T?, val apiE
         fun <T> loading(data: T?): Resource<T> {
             return Resource(Status.LOADING, data, null)
         }
-
     }
-
 }

@@ -1,4 +1,4 @@
-package org.pursuit.team_6_happyhouranytime.network
+package org.pursuit.team_6_happyhouranytime.network.webutils
 
 import androidx.lifecycle.MutableLiveData
 import org.pursuit.team_6_happyhouranytime.network.errorutil.APIError
@@ -22,6 +22,5 @@ open class CallBackHandler<T> : Callback<T> {
 
     override fun onResponse(call: Call<T>, response: Response<T>) {
         if (response.isSuccessful) result.value = Resource.success(response.body())
-        else result.value = Resource.error(ErrorUtils.parseError(response))
     }
 }

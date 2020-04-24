@@ -13,8 +13,7 @@ class MainViewModel : ViewModel() {
     val cocktailName: String = TODO()
     val cocktailModel: MutableLiveData<Resource<CocktailModel>> = MutableLiveData()
     lateinit var randomCocktail: MutableLiveData<Resource<CocktailModel>>
-
-    suspend fun getRandomCocktail() {
+    fun getRandomCocktail() {
         randomCocktail = CocktailRepository.getRandomCocktail()
     }
 }
